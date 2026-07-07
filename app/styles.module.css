@@ -4,7 +4,7 @@
     height: 50px;
     left: 225px;
     bottom: 225px;
-    transition: 0.25s;
+    transition: 0.15s;
 }
 .container1{
     position: absolute;
@@ -23,7 +23,7 @@
     width: 100px;
     height: 300px;
     left: 0px;
-    transition: 0.25s;
+    transition: 0.15s;
 }
 .container2:hover .cuteButton{
     transform: translateY(200px);
