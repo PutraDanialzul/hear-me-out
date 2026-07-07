@@ -1,3 +1,4 @@
+import styles from "./globals.module.css"
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
