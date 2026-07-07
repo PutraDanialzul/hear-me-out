@@ -1,4 +1,5 @@
-import styles from "./globals.module.css"
+import HeaderPanel from "../components/layout/header-panel";
+import "./globals.css"
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body>{children}</body>
+            <body>
+                <HeaderPanel/>
+                {children}
+            </body>
         </html>
     );
 }

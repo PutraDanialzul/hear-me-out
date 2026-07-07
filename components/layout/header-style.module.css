@@ -1,0 +1,36 @@
+.header{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 10vh;
+    background-color: white;
+}
+
+.header div{
+    flex: 1 1 100%;
+    width: 100%;
+}
+
+.logoContainer{
+    flex: 1 2 50%;
+}
+
+.linkContainer{
+    flex: 2 1 50%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.linkContainer button{
+    background-color: #ff0000;
+    margin: auto;
+    height: 50%;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}

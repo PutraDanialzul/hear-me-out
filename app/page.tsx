@@ -5,6 +5,8 @@ import styles from "./styles.module.css"
 export default function Page(){
     return (
         <div>
+            <header className={styles.header}>
+            </header>
             Hear me out! ^w^
             <div className={styles.container1}>
                 <div className={styles.container2}>
