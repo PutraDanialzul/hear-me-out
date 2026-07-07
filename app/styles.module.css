@@ -40,5 +40,5 @@
     transform: translate(-200px, 0px);
 }
 .cuteButton:hover{
-    transform: scale(0.0);
+    transform: rotateY(90.0);
 }
