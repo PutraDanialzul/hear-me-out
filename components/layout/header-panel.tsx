@@ -12,14 +12,16 @@ export default function HeaderPanel(){
     const [showAbout, setShowAbout] = useState(false);
 
     function onHamburgerButtonClick(){
-        setShowHamburgerContents(!showHamburgerContents);
+        setShowHamburgerContents(prev => !prev);
     }
 
     function onAboutButtonClick(){
-        setShowAbout(!showAbout);
+        setShowAbout(prev => !prev);
     }
 
     useEffect(()=>{
+        setShowAbout(false);
+        setShowHamburgerContents(false);
         const matchSize = window.matchMedia("screen and (max-width: 700px)");
         function resizeFunction(){
             if(matchSize.matches) setShowAbout(false);
@@ -30,7 +32,7 @@ export default function HeaderPanel(){
         return () => {
             window.removeEventListener("resize", resizeFunction);
         }
-    }, []);
+    }, [pathname]);
 
     return(
         <div>
