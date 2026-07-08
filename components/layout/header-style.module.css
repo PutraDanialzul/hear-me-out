@@ -91,7 +91,7 @@
     display: flex;
 }
 
-@media screen and (width <= 700){
+@media screen and (max-width: 700px){
     .linkContainer{
         display: none;
     }

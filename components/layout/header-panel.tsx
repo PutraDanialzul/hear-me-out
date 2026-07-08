@@ -1,11 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import styles from "./header-style.module.css"
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useFrames } from "next/dist/next-devtools/dev-overlay/utils/get-error-by-type";
-import { time } from "console";
 import { usePathname } from "next/navigation";
 
 export default function HeaderPanel(){
@@ -23,11 +20,12 @@ export default function HeaderPanel(){
     }
 
     useEffect(()=>{
+        const matchSize = window.matchMedia("screen and (max-width: 700px)");
         function resizeFunction(){
-            const matchSize = window.matchMedia("@media screen and (width <= 700)").matches;
-            if(matchSize) setShowAbout(false);
+            if(matchSize.matches) setShowAbout(false);
             else setShowHamburgerContents(false);
         }
+        resizeFunction();
         window.addEventListener("resize", resizeFunction);
         return () => {
             window.removeEventListener("resize", resizeFunction);
