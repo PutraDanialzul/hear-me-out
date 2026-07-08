@@ -55,7 +55,7 @@
 .hamburgerButton{
     cursor: pointer;
     display: none;
-    flex: 1 2 10vw;
+    flex: 1 2 30vw;
     text-align: center;
     align-content: center;
     transition: 0.35s;
@@ -84,7 +84,7 @@
     text-align: center;
     text-decoration: none;
     color: black;
-    font-size: 3.5vw;
+    font-size: normal;
 }
 
 .showContents{
