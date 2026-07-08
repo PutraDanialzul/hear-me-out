@@ -6,39 +6,96 @@
     width: 100%;
     height: 10vh;
     background-color: white;
+    border-bottom: solid 2px black;
 }
 
-.header div{
+.header *{
     flex: 1 1 100%;
-    width: 100%;
 }
 
 .logoContainer{
-    flex: 1 2 50%;
+    margin-left: 1vw;
 }
 
 .linkContainer{
-    flex: 2 1 50%;
     display: flex;
     flex-direction: row;
     text-align: center;
+    margin-right: 1vw;
 }
 
 .linkContainer *{
-    background-color: #ff0000;
+    background: none;
     margin: auto;
     height: 50%;
-    font-size: 24px;
+    font-size: 1.5vw;
+    width: 100%;
     border: none;
     cursor: pointer;
     border-radius: 10px;
-    transition: 0.35s;
+    text-indent: 0;
+    line-height: normal;
+    display: inline-block;
+    margin: auto 1vw auto 1vw;
     color: black;
+    text-align: center;
+    align-content: center;
     text-decoration: none;
+    word-spacing: normal;
+    flex: 1 1 0;
+    transition: 0.35s;
 }
 
-.linkContainer *:hover{
+.linkContainer *:hover, .selected{
     background-color: black;
     transform: scale(1.05);
     color: white;
+}
+
+.hamburgerButton{
+    cursor: pointer;
+    display: none;
+    flex: 1 2 10vw;
+    text-align: center;
+    align-content: center;
+    transition: 0.35s;
+}
+
+.hamburgerButton:hover, .hamburgerButtonOpen, .hamburgerContainer *:hover{
+    background-color: black;
+    color: white;
+}
+
+.hamburgerButton::before{
+    content: "☰";
+}
+
+.hamburgerContainer{
+    display: flex;
+    flex-direction: column;
+    top: 10vh;
+    width: 100%;
+    background: white;
+    display: none;
+    border-bottom: solid 1px black;
+}
+
+.hamburgerContainer *{
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 3.5vw;
+}
+
+.showContents{
+    display: flex;
+}
+
+@media screen and (width <= 700){
+    .linkContainer{
+        display: none;
+    }
+    .hamburgerButton{
+        display: inline-block;
+    }
 }

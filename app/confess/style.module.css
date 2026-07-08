@@ -1,0 +1,6 @@
+.errorBanner{
+    width: 100%;
+    background-color: red;
+    padding: 1vh 0 1vh 0;
+    text-align: center;
+}

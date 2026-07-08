@@ -7,8 +7,10 @@ export default function ConfessionForm(){
         'use server';
         const textData = formData.get("text") as string;
         const insert = await supabase.from("confession").insert({text:textData});
-        //console.log(insert.er)
-        redirect("/");
+        if(insert.error){
+            redirect(`/confess?error=${encodeURIComponent("Error: "+insert.error.message+". ")}`);
+        }
+        else redirect("/");
     }
 
     return (
