@@ -20,8 +20,6 @@ export default function HeaderPanel(){
     }
 
     useEffect(()=>{
-        setShowAbout(false);
-        setShowHamburgerContents(false);
         const matchSize = window.matchMedia("screen and (max-width: 700px)");
         function resizeFunction(){
             if(matchSize.matches) setShowAbout(false);
@@ -32,6 +30,11 @@ export default function HeaderPanel(){
         return () => {
             window.removeEventListener("resize", resizeFunction);
         }
+    }, []);
+
+    useEffect(()=>{
+        setShowAbout(false);
+        setShowHamburgerContents(false);
     }, [pathname]);
 
     return(
@@ -44,9 +47,9 @@ export default function HeaderPanel(){
                     <Link href="/" className={pathname == "/" ? styles.selected : ""}>Confessions</Link>
                     <Link href="/confess" className={pathname == "/confess" ? styles.selected : ""}>Confess</Link>
                     <Link href="/express" className={pathname == "/express" ? styles.selected : ""}>Express</Link>
-                    <div className={showAbout ? styles.selected : ""} onClick={onAboutButtonClick}>About {showAbout ? "⮝" : "⮟"}</div>
+                    <button className={showAbout ? styles.selected : ""} onClick={onAboutButtonClick}>About {showAbout ? "⮝" : "⮟"}</button>
                 </div>
-                <div className={styles.hamburgerButton} onClick={onHamburgerButtonClick}/>
+                <button className={styles.hamburgerButton + (showHamburgerContents ? " "+styles.hamburgerButtonOpen : "")} onClick={onHamburgerButtonClick}/>
             </header>
             
             <div className={styles.hamburgerContainer + (showHamburgerContents ? " "+styles.showContents : "")}>

@@ -59,6 +59,8 @@
     text-align: center;
     align-content: center;
     transition: 0.35s;
+    border: none;
+    background: none;
 }
 
 .hamburgerButton:hover, .hamburgerButtonOpen, .hamburgerContainer *:hover{
