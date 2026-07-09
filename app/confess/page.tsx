@@ -13,6 +13,7 @@ export default async function ConfessPage({searchParams}:{searchParams:Promise<{
     return (
         <div>
             {banner} 
+            <h1>Confess: </h1>
             <ConfessionForm/>
         </div>
     );

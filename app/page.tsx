@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ConfessionList from "../components/confession-list";
 import styles from "./styles.module.css"
 
@@ -14,6 +15,7 @@ export default async function Page({searchParams}:{searchParams:Promise<{error:s
     return (
         <div>
             {banner}
+            <h1>Confessions: </h1><Link className="addButton" href="/confess">+ Add a confession</Link>
             <ConfessionList/>
         </div>
     );

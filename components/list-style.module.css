@@ -17,6 +17,7 @@
 
 .confessionBox > *{
     margin: 2vh 2vw 2vh 2vw;
+    white-space: pre-line;
 }
 
 .data{
