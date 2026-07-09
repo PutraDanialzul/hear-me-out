@@ -1,0 +1,41 @@
+.form{
+    width: fit-content;
+    height: fit-content;
+}
+
+.label{
+    display: block;
+    text-align: center;
+}
+
+.textArea{
+    width: 50vw;
+    height: 20vh;
+    resize: none;
+    border-radius: 10px;
+    margin: 1vh 0 1vh 0;
+}
+
+.sendButton{
+    display: block;
+    border: none;
+    background-color: #F3F3F3;
+    color: #42404E;
+    cursor: pointer;
+    transition: 0.35s;
+    width: 100%;
+    padding: 2vh 0 2vh 0;
+    border-radius: 10px;
+}
+
+.sendButton:hover{
+    color: #F3F3F3;
+    background-color: #42404E;
+}
+
+.container{
+    width: fit-content;
+    margin: 10vh auto 10vh auto;
+    padding: 2vh 2vw 2vh 2vw;
+    background-color: #8096A4;
+}

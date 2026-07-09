@@ -50,7 +50,7 @@ export async function updateSession(request: NextRequest) {
     // no user, potentially respond by redirecting the user to the login page
     const url = request.nextUrl.clone()
     url.pathname = '/'
-    url.searchParams.set("error", "Please sign in with your account first!");
+    url.searchParams.set("error", "Please sign in to gain more access!");
     return NextResponse.redirect(url)
   }
 
