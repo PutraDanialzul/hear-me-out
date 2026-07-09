@@ -87,7 +87,8 @@ export default function HeaderPanel(){
                 <Link href="/">Confessions</Link>
                 <Link href="/confess">Confess</Link>
                 <Link href="/express">Express</Link>
-                <Link href="/about">About</Link>
+                <Link href="/about-us">About us</Link>
+                <Link href="/about">About Hear Me Out</Link>
             </div>
         </div>
     );
