@@ -12,7 +12,7 @@ export default function SignInButton(){
         const { data, error } = await supabase.auth.signInWithOAuth({
             provider: provider,
             options: {
-                redirectTo: `${location.origin}/auth/callback`,
+                redirectTo: `/auth/callback`,
                 scopes: "email",
                 queryParams: {
                     prompt: "select_account",
