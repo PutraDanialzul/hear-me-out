@@ -1,6 +1,16 @@
-.border{
-    border-collapse: collapse;
-    border: solid 1px black;
+.confessionBox{
+    border: solid 1px #42404E;
+    background-color: #565E75;
+    margin: 2vh 2vw 2vh 2vw;
+    border-radius: 10px;
+}
+
+.confessionBox > *{
+    margin: 2vh 2vw 2vh 2vw;
+}
+
+.textBox{
+    background-color: #8096A4;
 }
 
 .data{

@@ -1,10 +1,11 @@
 import { redirect } from "next/navigation";
-import { supabase } from "../lib/supabase";
+import { createClient } from "../lib/supabase/server";
 
 export default function ConfessionForm(){
 
     async function addConfession(formData: FormData){
         'use server';
+        const supabase = await createClient();
         const textData = formData.get("text") as string;
         const insert = await supabase.from("confession").insert({text:textData});
         if(insert.error){

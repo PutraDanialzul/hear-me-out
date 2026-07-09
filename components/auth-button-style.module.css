@@ -1,0 +1,20 @@
+.signOutButton, .signInButton{
+    width: 5vw;
+    font-size: normal;
+    border: none;
+    cursor: pointer;
+    background: none;
+    transition: 0.35s;
+}
+
+.signInButton:hover, .signOutButton:hover{
+    transform: scale(1.05);
+}
+
+.signOutButton{
+    color: #420000;
+}
+
+.signInButton{
+    color: #42404E;
+}

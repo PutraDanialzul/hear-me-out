@@ -5,12 +5,23 @@
     flex-direction: row;
     width: 100%;
     height: 10vh;
-    background-color: white;
-    border-bottom: solid 2px black;
+    background-color: #F3F3F3;
+    border-bottom: solid 2px #42404E;
 }
 
-.header *{
+.header > *{
     flex: 1 1 100%;
+}
+
+.logInInformation{
+    flex: 1 2 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logInInformation > * {
+    margin: 1vh 1vw 1vh 1vw;
 }
 
 .logoContainer{
@@ -37,7 +48,7 @@
     line-height: normal;
     display: inline-block;
     margin: auto 1vw auto 1vw;
-    color: black;
+    color: #42404E;
     text-align: center;
     align-content: center;
     text-decoration: none;
@@ -47,9 +58,9 @@
 }
 
 .linkContainer *:hover, .selected{
-    background-color: black;
+    background-color: #42404E;
     transform: scale(1.05);
-    color: white;
+    color: #F3F3F3;
 }
 
 .hamburgerButton{
@@ -64,8 +75,8 @@
 }
 
 .hamburgerButton:hover, .hamburgerButtonOpen, .hamburgerContainer *:hover{
-    background-color: black;
-    color: white;
+    background-color: #42404E;
+    color: #F3F3F3;
 }
 
 .hamburgerButton::before{
@@ -77,15 +88,15 @@
     flex-direction: column;
     top: 10vh;
     width: 100%;
-    background: white;
+    background: #F3F3F3;
     display: none;
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px #42404E;
 }
 
 .hamburgerContainer *{
     text-align: center;
     text-decoration: none;
-    color: black;
+    color: #42404E;
     font-size: normal;
     padding-top: 2vh;
     padding-bottom: 2vh;
@@ -93,6 +104,22 @@
 
 .showContents{
     display: flex;
+}
+
+.aboutContainer{
+    position: absolute;
+    right: 2vw;
+    border: solid #42404E 2px;
+    background-color: #F3F3F3;
+    top: 10vh;
+    min-width: 10vw;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    min-height: 10vh;
+    font-size: 1.5vw;
+    display: none;
+    transition: 0.35s;
 }
 
 @media screen and (max-width: 700px){
