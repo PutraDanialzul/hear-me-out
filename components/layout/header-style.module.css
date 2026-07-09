@@ -67,6 +67,7 @@
     cursor: pointer;
     display: none;
     flex: 1 2 30vw;
+    min-width: 10vw;
     text-align: center;
     align-content: center;
     transition: 0.35s;

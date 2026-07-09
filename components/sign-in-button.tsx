@@ -13,7 +13,10 @@ export default function SignInButton(){
             provider: provider,
             options: {
                 redirectTo: `${location.origin}/auth/callback`,
-                scopes: "email"
+                scopes: "email",
+                queryParams: {
+                    prompt: "select_account",
+                }
             },
         })
     }

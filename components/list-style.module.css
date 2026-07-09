@@ -1,16 +1,22 @@
 .confessionBox{
-    border: solid 1px #42404E;
+    padding: 1vh 0 1vh 0;
     background-color: #565E75;
-    margin: 2vh 2vw 2vh 2vw;
+    margin: 4vh 4vw 4vh 4vw;
     border-radius: 10px;
+    transition: 0.35s;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+
+.confessionBox:hover{
+    transform: scale(1.01);
+    background-color: #8096A4;
 }
 
 .confessionBox > *{
     margin: 2vh 2vw 2vh 2vw;
-}
-
-.textBox{
-    background-color: #8096A4;
 }
 
 .data{

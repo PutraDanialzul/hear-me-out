@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { createClient } from "../lib/supabase/server";
 import styles from "./list-style.module.css"
 
@@ -21,10 +22,10 @@ export default async function ConfessionList(){
     return (
         <div>
             {confessions.map((confession)=>(
-                <div className={styles.confessionBox}>
+                <Link href={"/confession?id="+confession.id} key={confession.id} className={styles.confessionBox}>
                     <p>Time Created: {confession.created_at}</p>
                     <p>{confession.text}</p>
-                </div>
+                </Link>
             ))}
         </div>
     );

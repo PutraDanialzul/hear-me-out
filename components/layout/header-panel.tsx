@@ -25,6 +25,17 @@ export default function HeaderPanel(){
     }
 
     useEffect(()=>{
+        const supabase = createClient();
+        async function checkUser(){
+            const user = await supabase.auth.getUser();
+            setLoggedIn(user.data.user != null);
+            if(user.data.user)
+                setUserEmail(user.data.user.email);
+        }
+        checkUser();
+        const {data:{subscription}} = supabase.auth.onAuthStateChange((event, session)=>{
+            checkUser();
+        });
         const matchSize = window.matchMedia("screen and (max-width: 700px)");
         function resizeFunction(){
             if(matchSize.matches) setShowAbout(false);
@@ -33,19 +44,12 @@ export default function HeaderPanel(){
         resizeFunction();
         window.addEventListener("resize", resizeFunction);
         return () => {
+            subscription.unsubscribe();
             window.removeEventListener("resize", resizeFunction);
         }
     }, []);
 
     useEffect(()=>{
-        async function checkUser(){
-            const supabase = createClient();
-            const user = await supabase.auth.getUser();
-            setLoggedIn(user.data.user != null);
-            if(user.data.user)
-                setUserEmail(user.data.user.email);
-        }
-        checkUser();
         setShowAbout(false);
         setShowHamburgerContents(false);
     }, [pathname]);
