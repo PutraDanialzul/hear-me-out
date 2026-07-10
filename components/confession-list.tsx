@@ -9,7 +9,6 @@ interface Confession{
     verified: boolean
 }
 
-
 export default async function ConfessionList(){
 
 

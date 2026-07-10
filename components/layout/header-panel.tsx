@@ -3,13 +3,13 @@
 import styles from "./header-style.module.css"
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { createClient } from "../../lib/supabase/client";
 import SignOutButton from "../sign-out-button";
 import SignInButton from "../sign-in-button";
 
 export default function HeaderPanel(){
-    
+    const router = useRouter();
     const pathname = usePathname();
     const [showHamburgerContents, setShowHamburgerContents] = useState(false);
     const [showAbout, setShowAbout] = useState(false);
@@ -31,8 +31,8 @@ export default function HeaderPanel(){
             setLoggedIn(user.data.user != null);
             if(user.data.user){
                 setUserEmail(user.data.user.email);
-                console.log(user.data.user.user_metadata);
             }
+            router.refresh();
         }
         checkUser();
         const {data:{subscription}} = supabase.auth.onAuthStateChange((event, session)=>{

@@ -5,7 +5,6 @@ import { Provider } from "@supabase/supabase-js";
 import { createClient } from "../lib/supabase/client";
 
 export default function SignInButton(){
-        
     async function signIn(){
         const supabase = await createClient();
         const provider = 'azure' as Provider
@@ -18,7 +17,7 @@ export default function SignInButton(){
                     prompt: "select_account",
                 }
             },
-        })
+        });
     }
 
     return (<button className={styles.signInButton} onClick={signIn}>Sign In</button>);
