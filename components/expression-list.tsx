@@ -14,7 +14,7 @@ export default async function ExpressionList(){
 
     async function getExpressions():Promise<Expression[]>{
         const supabase = await createClient();
-        const selection = await supabase.from("expression").select("*");
+        const selection = await supabase.from("expression").select("created_at, text, id").order("created_at", {ascending: false});
         return selection.data ?? [];
     }
 

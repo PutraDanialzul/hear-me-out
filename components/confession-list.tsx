@@ -13,7 +13,7 @@ export default async function ConfessionList(){
 
     async function getConfessions():Promise<Confession[]>{
         const supabase = await createClient();
-        const selection = await supabase.from("confession").select("created_at, text, id, verified");
+        const selection = await supabase.from("confession").select("created_at, text, id, verified").order("created_at", {ascending: false});
         return selection.data ?? [];
     }
 

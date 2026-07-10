@@ -4,6 +4,7 @@ import { createClient } from "../../lib/supabase/server";
 import DeleteConfessionButton from "../../components/delete-confession-button";
 import VerifyButton from "../../components/verify-button";
 import ReportButton from "../../components/report-button";
+import UnverifyButton from "../../components/unverify-button";
 
 export default async function ConfessionPage({searchParams}:{searchParams:Promise<{id:string}>}){
     interface Confession{
@@ -30,7 +31,7 @@ export default async function ConfessionPage({searchParams}:{searchParams:Promis
         authorized = confession.confessor_id == user.id || isModerator;
     }
     let verifyButton = null;
-    if(!confession.verified && isModerator) verifyButton = (<VerifyButton confessionId={confession.id}/>);
+    if(isModerator) verifyButton = (confession.verified ? (<UnverifyButton confessionId={confession.id}/>) : (<VerifyButton confessionId={confession.id}/>));
     return (<div>
         <h1>Hear Me Out: </h1>
         <p className={styles.textContainer}>{confession.text}</p>
@@ -40,7 +41,9 @@ export default async function ConfessionPage({searchParams}:{searchParams:Promis
             <p>Verified: {confession.verified ? "true" : "false"}</p>
         </div>
         <ReportButton confessionId={confession.id}/>
+        <br/>
         <DeleteConfessionButton disabled={!authorized} confessionId={confession.id}/>
+        <br/>
         {verifyButton}
     </div>);
 }

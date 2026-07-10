@@ -17,7 +17,7 @@ export default function VerifyButton({confessionId}:{confessionId:string}){
             return;
         }
         alert("You have successfully verified the confession. ");
-        router.replace("/");
+        router.refresh();
     }
 
     return (<button onClick={verifyConfession}>Verify Confession</button>);
