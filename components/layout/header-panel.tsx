@@ -86,11 +86,11 @@ export default function HeaderPanel(){
             
 
             <div className={styles.hamburgerContainer + (showHamburgerContents ? " "+styles.showContents : "")}>
-                <Link href="/">Confessions</Link>
-                <Link href="/confess">Confess</Link>
-                <Link href="/express">Express</Link>
-                <Link href="/about-us">About us</Link>
-                <Link href="/about">About Hear Me Out</Link>
+                <Link onClick={()=>{setShowHamburgerContents(false)}} href="/">Confessions</Link>
+                <Link onClick={()=>{setShowHamburgerContents(false)}} href="/confess">Confess</Link>
+                <Link onClick={()=>{setShowHamburgerContents(false)}} href="/express">Express</Link>
+                <Link onClick={()=>{setShowHamburgerContents(false)}} href="/about-us">About us</Link>
+                <Link onClick={()=>{setShowHamburgerContents(false)}} href="/about">About Hear Me Out</Link>
             </div>
         </div>
     );
