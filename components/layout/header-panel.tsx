@@ -29,8 +29,10 @@ export default function HeaderPanel(){
         async function checkUser(){
             const user = await supabase.auth.getUser();
             setLoggedIn(user.data.user != null);
-            if(user.data.user)
+            if(user.data.user){
                 setUserEmail(user.data.user.email);
+                console.log(user.data.user.user_metadata);
+            }
         }
         checkUser();
         const {data:{subscription}} = supabase.auth.onAuthStateChange((event, session)=>{

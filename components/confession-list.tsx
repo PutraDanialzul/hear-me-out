@@ -14,7 +14,7 @@ export default async function ConfessionList(){
 
     async function getConfessions():Promise<Confession[]>{
         const supabase = await createClient();
-        const selection = await supabase.from("confession").select("*");
+        const selection = await supabase.from("confession").select("created_at, text, id");
         return selection.data ?? [];
     }
 
@@ -22,7 +22,7 @@ export default async function ConfessionList(){
     return (
         <div>
             {confessions.map((confession)=>(
-                <Link href={"/confession?id="+confession.id} key={confession.id} className={styles.confessionBox}>
+                <Link href={"/confession?id="+confession.id} key={confession.id} className={styles.contentBox}>
                     <p>Time Created: {confession.created_at}</p>
                     <p>{confession.text}</p>
                 </Link>
