@@ -31,7 +31,7 @@ export default async function ConfessionPage({searchParams}:{searchParams:Promis
     let verifyButton = null;
     if(!confession.verified && isModerator) verifyButton = (<VerifyButton confessionId={confession.id}/>);
     return (<div>
-        <h1>Confession Displayer: </h1>
+        <h1>Hear Me Out: </h1>
         <p className={styles.textContainer}>{confession.text}</p>
         <div className={styles.metadataContainer}>
             <p>ID: {confession.id}</p>

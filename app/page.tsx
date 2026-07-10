@@ -15,7 +15,7 @@ export default async function Page({searchParams}:{searchParams:Promise<{error:s
     return (
         <div>
             {banner}
-            <h1>Confessions: (Public)</h1>
+            <h1>Hear Me Out: (Public)</h1>
             <Link className="addButton" href="/confess">+ Add a confession</Link>
             <ConfessionList/>
         </div>
