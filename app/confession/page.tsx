@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
 import DeleteConfessionButton from "../../components/delete-confession-button";
 import VerifyButton from "../../components/verify-button";
+import ReportButton from "../../components/report-button";
 
 export default async function ConfessionPage({searchParams}:{searchParams:Promise<{id:string}>}){
     interface Confession{
@@ -38,6 +39,7 @@ export default async function ConfessionPage({searchParams}:{searchParams:Promis
             <p>Created at: {confession.created_at}</p>
             <p>Verified: {confession.verified ? "true" : "false"}</p>
         </div>
+        <ReportButton confessionId={confession.id}/>
         <DeleteConfessionButton disabled={!authorized} confessionId={confession.id}/>
         {verifyButton}
     </div>);

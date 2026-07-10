@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import styles from "./form-style.module.css";
 
-export default function DraftTextarea({name, storageKey, maxLength=1500}:{name:string, storageKey: string, maxLength: number}){
+export default function DraftTextarea({name, storageKey, maxLength=1500}:{name:string, storageKey: string, maxLength?: number}){
     const [draft, setDraft] = useState(localStorage.getItem(storageKey) ?? "");
     const [length, setLength] = useState(0);
     useEffect(()=>{
