@@ -5,7 +5,8 @@ import styles from "./list-style.module.css"
 interface Confession{
     created_at: string,
     text: string,
-    id: string
+    id: string,
+    verified: boolean
 }
 
 
@@ -14,7 +15,7 @@ export default async function ConfessionList(){
 
     async function getConfessions():Promise<Confession[]>{
         const supabase = await createClient();
-        const selection = await supabase.from("confession").select("created_at, text, id");
+        const selection = await supabase.from("confession").select("created_at, text, id, verified");
         return selection.data ?? [];
     }
 
@@ -22,8 +23,8 @@ export default async function ConfessionList(){
     return (
         <div>
             {confessions.map((confession)=>(
-                <Link href={"/confession?id="+confession.id} key={confession.id} className={styles.contentBox}>
-                    <p>Time Created: {confession.created_at}</p>
+                <Link href={"/confession?id="+confession.id} key={confession.id} className={confession.verified ? styles.contentBox : styles.unverifiedBox}>
+                    <p>Time Created: {confession.created_at} {!confession.verified ? "(unverified)" : ""}</p>
                     <p>{confession.text}</p>
                 </Link>
             ))}

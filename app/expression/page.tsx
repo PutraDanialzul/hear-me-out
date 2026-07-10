@@ -1,6 +1,7 @@
 import styles from "../../components/displayer-style.module.css"
 import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
+import DeleteExpressionButton from "../../components/delete-expression-button";
 
 export default async function ExpressionPage({searchParams}:{searchParams:Promise<{id:string}>}){
 
@@ -20,11 +21,12 @@ export default async function ExpressionPage({searchParams}:{searchParams:Promis
     const expression = select.data as Expression;
 
     return (<div>
-        <h1>Confession Displayer: </h1>
+        <h1>Expression Displayer: </h1>
         <p className={styles.textContainer}>{expression.text}</p>
         <div className={styles.metadataContainer}>
             <p>ID: {expression.id}</p>
             <p>Created at: {expression.created_at}</p>
         </div>
+        <DeleteExpressionButton expressionId={expression.id}/>
     </div>);
 }

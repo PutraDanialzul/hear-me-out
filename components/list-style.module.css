@@ -1,4 +1,4 @@
-.contentBox{
+.contentBox, .unverifiedBox{
     padding: 1vh 0 1vh 0;
     background-color: #565E75;
     margin: 4vh 4vw 4vh 4vw;
@@ -10,12 +10,16 @@
     color: black;
 }
 
+.unverifiedBox{
+    background-color: red;
+}
+
 .contentBox:hover{
     transform: scale(1.01);
     background-color: #8096A4;
 }
 
-.contentBox > *{
+.contentBox > *, .unverifiedBox > *{
     margin: 2vh 2vw 2vh 2vw;
     white-space: pre-line;
 }
