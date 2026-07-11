@@ -1,0 +1,14 @@
+.infoButton{
+    cursor: pointer;
+}
+
+.infoButton::after{
+    content: "ⓘ";
+}
+
+.infoBox{
+    font-weight: normal;
+    font-size: small;
+    border: solid 1px black;
+    padding: 2vh 1vw 2vh 1vw;
+}

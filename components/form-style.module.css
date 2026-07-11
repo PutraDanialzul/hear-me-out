@@ -1,41 +1,56 @@
 .form{
-    width: fit-content;
-    height: fit-content;
-}
-
-.label{
-    display: block;
-    text-align: center;
+    width: 50vw;
+    height: 50vh;
+    border: solid 1px black;
+    margin: 10vh auto 10vh auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .textArea{
-    width: 50vw;
-    height: 20vh;
+    width: 100%;
     resize: none;
-    border-radius: 10px;
-    margin: 1vh 0 1vh 0;
+    padding: 0;
+    border: none;
+    background: none;
+    height: 100%;
+}
+
+.textArea:focus{
+    outline: none;
+}
+
+.textCount{
+    display: block;
+    text-align: right;
+    position: relative;
+    bottom: 5vh;
+    right: 0;
+    opacity: 0.5;
+}
+
+.areaBox{
+    height: 100%;
+    padding: 2vh 1vw 2vh 1vw;
 }
 
 .sendButton{
+    height: 20%;
     display: block;
     border: none;
-    background-color: #F3F3F3;
-    color: #42404E;
+    background-color: #ced9e2;
+    color: black;
     cursor: pointer;
     transition: 0.35s;
     width: 100%;
+    border-top: solid 1px black;
     padding: 2vh 0 2vh 0;
-    border-radius: 10px;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .sendButton:hover{
-    color: #F3F3F3;
-    background-color: #42404E;
-}
-
-.container{
-    width: fit-content;
-    margin: 10vh auto 10vh auto;
-    padding: 2vh 2vw 2vh 2vw;
-    background-color: #8096A4;
+    background-color: #8e99a2;
 }

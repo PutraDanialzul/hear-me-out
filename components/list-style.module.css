@@ -30,6 +30,7 @@
     white-space: pre-line;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-height: 10vh;
 }
 
 .readMore{

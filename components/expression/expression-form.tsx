@@ -34,15 +34,9 @@ export default function ExpressionForm(){
     }
 
     return (
-        <div className={styles.container}>
-            <form action={addExpression}>
-                <fieldset className={styles.form}>
-                    <legend>Express yourself</legend>
-                    <label className={styles.label} htmlFor="textarea">Please write your expression: (Only you can read it)</label>
-                    <DraftTextarea name="text" storageKey="expressionDraft"/>
-                    <input className={styles.sendButton} type="submit" value={"Express"}/>
-                </fieldset>
-            </form>
-        </div>
+        <form className={styles.form} action={addExpression}>
+            <DraftTextarea name="text" placeholder="What's on your mind? " storageKey="expressionDraft"/>
+            <input className={styles.sendButton} type="submit" value={"Save"}/>
+        </form>
     );
 }
