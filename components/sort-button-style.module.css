@@ -1,0 +1,15 @@
+.sortButton{
+    background: none;
+    padding: 0.25vh 2vw 0.25vh 2vw;
+    border-radius: 10px;
+    border: solid 1px black;
+    cursor: pointer;
+}
+
+.oldestFirst::before{
+    content: "Oldest ⮝";
+}
+
+.newestFirst::before{
+    content: "Newest ⮟";
+}

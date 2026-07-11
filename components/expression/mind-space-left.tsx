@@ -9,7 +9,7 @@ export default function MindSpaceLeft(){
     return (
     <div className={styles.leftSide}>
         <div className={styles.iconContainer}>
-            <p className={styles.mindSpaceEmoji}>🌿</p>
+            <p className={styles.mindSpaceEmoji}/>
             <div className={styles.mindSpaceInfo}>
                 <p style={{fontWeight: "bold", margin: "auto 0 0 0"}}>mind space</p>
                 <p style={{margin: "0 0 auto 0"}}>a space for you</p>

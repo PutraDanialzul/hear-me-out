@@ -1,0 +1,27 @@
+.searchBar{
+    background-color: #ced9e2;
+    width: fit-content;
+    padding: 0 1vw 0 1vw;
+    border-radius: 10px;
+}
+
+.searchBar::before{
+    content: "🔍︎";
+    position: absolute;
+}
+
+.textInput{
+    border: none;
+    margin: auto 0 auto 0;
+    background: none;
+    text-align: center;
+}
+
+.textInput:focus{
+    border: none;
+    outline: none;
+}
+
+.searchBar:has(.textInput:focus){
+    border: solid 2px black;
+}

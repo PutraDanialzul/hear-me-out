@@ -1,6 +1,7 @@
 .contentBox, .unverifiedBox{
+    display: flex;
+    flex-direction: column;
     padding: 1vh 0 1vh 0;
-    background-color: #565E75;
     margin: 4vh 4vw 4vh 4vw;
     border-radius: 10px;
     transition: 0.35s;
@@ -10,6 +11,37 @@
     color: black;
 }
 
+.topArea{
+    border-bottom: solid 2px black;
+    height: 20%;
+    padding: 0.25vh 3vw 0.25vh 3vw;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.lowerArea{
+    height: 80%;
+    padding: 1.25vh 3vw 2.25vh 3vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.text{
+    width: auto;
+    white-space: pre-line;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.readMore{
+    min-width: fit-content;
+    margin-left: 1vw;
+    color: #243ce6;
+}
+
+.contentBox{
+    background-color: #ced9e2;
+}
+
 .unverifiedBox{
     background-color: red;
 }
@@ -17,11 +49,6 @@
 .contentBox:hover{
     transform: scale(1.01);
     background-color: #8096A4;
-}
-
-.contentBox > *, .unverifiedBox > *{
-    margin: 2vh 2vw 2vh 2vw;
-    white-space: pre-line;
 }
 
 .data{

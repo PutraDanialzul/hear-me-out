@@ -32,6 +32,10 @@
     margin: auto 0 auto auto;
 }
 
+.mindSpaceEmoji::after{
+    content: "🌿";
+}
+
 .mindSpaceInfo{
     width: 60%;
     display: flex;

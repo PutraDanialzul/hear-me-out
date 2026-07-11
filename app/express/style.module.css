@@ -1,0 +1,18 @@
+.displaySetting{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.searchBar{
+    margin-right: auto;
+}
+
+.sortButton{
+    margin-left: auto;
+}
+
+.pageInfo{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

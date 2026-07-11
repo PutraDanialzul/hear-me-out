@@ -1,9 +1,10 @@
 'use client';
 
-export default function SearchBar({sortOldestFirst}:{sortOldestFirst: boolean}){
-    return (<form>
+import styles from "./search-bar-style.module.css"
+
+export default function SearchBar({sortOldestFirst, className}:{sortOldestFirst: boolean, className?:string}){
+    return (<form className={styles.searchBar+" "+className}>
         <input type="hidden" name="sort" value={sortOldestFirst ? 1 : 0}/>
-        <input type="text" name="search"/>
-        <input type="submit" value="Search"/>
+        <input className={styles.textInput} type="text" name="search" placeholder="search"/>
     </form>)
 }

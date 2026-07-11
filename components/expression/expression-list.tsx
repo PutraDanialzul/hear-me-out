@@ -12,19 +12,33 @@ interface Expression{
 export default async function ExpressionList({sortOldestFirst, searchQuery, contentPerPage, page}: {sortOldestFirst: boolean, searchQuery: string, contentPerPage: number, page: number}){
 
 
-    async function getExpressions():Promise<Expression[]>{
-        const supabase = await createClient();
-        const selection = await supabase.from("expression").select("created_at, text, id").ilike("text", `%${searchQuery}%`).order("created_at", {ascending: sortOldestFirst}).range(contentPerPage*page, contentPerPage*(page)+contentPerPage-1);
-        return selection.data ?? [];
+    function getDate(dateString){
+        const date = new Date(dateString);
+        const day = date.getDate();
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const month = months[date.getMonth()];
+        const year = date.getFullYear();
+        return "" + day + " " + month + " " + year;
     }
 
+    async function getExpressions():Promise<Expression[]>{
+        const supabase = await createClient();
+        const selection = await supabase.from("expression").select("created_at, text, id").ilike("text", `%${searchQuery}%`).order("created_at", {ascending: sortOldestFirst}).range(contentPerPage*(page-1), contentPerPage*(page-1)+contentPerPage-1);
+        console.log(new Date(selection.data[0]?.created_at).toLocaleString());
+        return selection.data ?? [];
+    }
     const expressions = await getExpressions();
     return (
         <div>
             {expressions.map((expression)=>(
                 <Link href={"/expression?id="+expression.id} key={expression.id} className={styles.contentBox}>
-                    <p>Time Created: {expression.created_at}</p>
-                    <p>{expression.text}</p>
+                    <div className={styles.topArea}>
+                        {getDate(expression.created_at)+" | "+new Date(expression.created_at).toLocaleTimeString()}
+                    </div>
+                    <div className={styles.lowerArea}>
+                        <span className={styles.text}>{expression.text}</span>
+                        <span className={styles.readMore}>Read More</span>
+                    </div>
                 </Link>
             ))}
         </div>
