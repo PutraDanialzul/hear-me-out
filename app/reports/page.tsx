@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
-import ReportList from "../../components/report-list";
+import ReportList from "../../components/report/report-list";
 
 export default async function ReportPage(){
     const supabase = await createClient();

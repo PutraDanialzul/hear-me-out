@@ -1,6 +1,6 @@
 'use client';
 
-import { createClient } from "../lib/supabase/client";
+import { createClient } from "../../lib/supabase/client";
 
 export default function ReportButton({confessionId, disabled}:{confessionId:string, disabled: boolean}){
     

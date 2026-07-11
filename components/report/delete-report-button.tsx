@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from "next/navigation";
-import { createClient } from "../lib/supabase/client";
+import { createClient } from "../../lib/supabase/client";
 
 export default function DeleteReportButton({reportId}: {reportId:string}){
     const router = useRouter();

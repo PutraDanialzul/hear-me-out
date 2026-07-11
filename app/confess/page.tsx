@@ -1,5 +1,5 @@
 import styles from "./style.module.css"
-import ConfessionForm from "../../components/confession-form";
+import ConfessionForm from "../../components/confession/confession-form";
 
 export default async function ConfessPage({searchParams}:{searchParams:Promise<{error:string}>}){
     let banner = (null);

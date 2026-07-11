@@ -1,7 +1,7 @@
 'use client';
 
-import styles from "./auth-button-style.module.css"
-import { createClient } from "../lib/supabase/client";
+import styles from "../auth-button-style.module.css"
+import { createClient } from "../../lib/supabase/client";
 import { useRouter } from "next/navigation";
 
 export default function SignOutButton(){

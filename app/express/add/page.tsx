@@ -1,4 +1,4 @@
-import ExpressionForm from "../../../components/expression-form";
+import ExpressionForm from "../../../components/expression/expression-form";
 
 export default async function AddExpressionPage({searchParams}:{searchParams:Promise<{error:string}>}){
     let banner = (null);

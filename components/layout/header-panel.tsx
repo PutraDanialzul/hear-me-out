@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { createClient } from "../../lib/supabase/client";
-import SignOutButton from "../sign-out-button";
-import SignInButton from "../sign-in-button";
+import SignOutButton from "./sign-out-button";
+import SignInButton from "./sign-in-button";
 
 export default function HeaderPanel(){
     const router = useRouter();
@@ -64,24 +64,30 @@ export default function HeaderPanel(){
             </div>
 
             <header className={styles.header}>
-            
-                <div className={styles.logoContainer}>
-
+                <div className={styles.topArea}>
+                    {loggedIn ? (<div className={styles.logInInformation}>
+                        {userEmail}
+                    </div>) : 
+                    <div className={styles.logInInformation}>
+                        {"Not signed in"}
+                    </div>}
+                    <div className={styles.logoContainer}>[LOGO]</div>
+                    {loggedIn ? (<div className={styles.buttonContainer}>
+                        <SignOutButton/>
+                    </div>) : 
+                    <div className={styles.buttonContainer}>
+                        <SignInButton/>
+                    </div>}
                 </div>
-                {loggedIn ? (<div className={styles.logInInformation}>
-                    {userEmail}
-                    <SignOutButton/>
-                </div>) : 
-                <div className={styles.logInInformation}>
-                    <SignInButton/>
-                </div>}
-                <div className={styles.linkContainer}>
-                    <Link href="/" className={pathname == "/" ? styles.selected : ""}>Confessions</Link>
-                    <Link href="/confess" className={pathname == "/confess" ? styles.selected : ""}>Confess</Link>
-                    <Link href="/express" className={pathname == "/express" ? styles.selected : ""}>Express</Link>
-                    <button className={showAbout ? styles.selected : ""} onClick={onAboutButtonClick}>About {showAbout ? "⮝" : "⮟"}</button>
+                <div className={styles.lowerArea}>
+                    <div className={styles.linkContainer}>
+                        <Link href="/" className={pathname == "/" || pathname == "/confession" ? styles.selected : ""}>Confessions</Link>
+                        <Link href="/confess" className={pathname == "/confess" ? styles.selected : ""}>Confess</Link>
+                        <Link href="/express" className={pathname == "/express" || pathname == "/express/add" || pathname == "/expression" ? styles.selected : ""}>Express</Link>
+                        <button className={showAbout ? styles.selected : ""} onClick={onAboutButtonClick}>About {showAbout ? "⮝" : "⮟"}</button>
+                    </div>
+                    <button className={styles.hamburgerButton + (showHamburgerContents ? " "+styles.hamburgerButtonOpen : "")} onClick={onHamburgerButtonClick}/>
                 </div>
-                <button className={styles.hamburgerButton + (showHamburgerContents ? " "+styles.hamburgerButtonOpen : "")} onClick={onHamburgerButtonClick}/>
             </header>
             
 

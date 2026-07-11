@@ -1,3 +1,4 @@
+import FooterPanel from "../components/layout/footer-panel";
 import HeaderPanel from "../components/layout/header-panel";
 import "./globals.css"
 import { Metadata } from "next";
@@ -17,6 +18,7 @@ export default function RootLayout({
             <body>
                 <HeaderPanel/>
                 {children}
+                <FooterPanel/>
             </body>
         </html>
     );

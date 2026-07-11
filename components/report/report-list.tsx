@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { createClient } from "../lib/supabase/server";
+import { createClient } from "../../lib/supabase/server";
 import styles from "./list-style.module.css"
 
 interface Report{

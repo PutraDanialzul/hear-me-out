@@ -1,10 +1,10 @@
 import styles from "../../components/displayer-style.module.css";
 import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
-import DeleteConfessionButton from "../../components/delete-confession-button";
-import VerifyButton from "../../components/verify-button";
-import ReportButton from "../../components/report-button";
-import UnverifyButton from "../../components/unverify-button";
+import DeleteConfessionButton from "../../components/confession/delete-confession-button";
+import VerifyButton from "../../components/confession/verify-button";
+import ReportButton from "../../components/confession/report-button";
+import UnverifyButton from "../../components/confession/unverify-button";
 
 export default async function ConfessionPage({searchParams}:{searchParams:Promise<{id:string}>}){
     interface Confession{

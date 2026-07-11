@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ConfessionList from "../components/confession-list";
+import ConfessionList from "../components/confession/confession-list";
 import styles from "./styles.module.css"
 import RemoveLocalStorage from "../components/remove-local-storage";
 import { createClient } from "../lib/supabase/server";

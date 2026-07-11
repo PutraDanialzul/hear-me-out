@@ -1,23 +1,41 @@
 .header{
     left: 0px;
     top: 0px;
-    display: flex;
-    flex-direction: row;
     width: 100%;
-    height: 10vh;
-    background-color: #F3F3F3;
+    height: 17vh;
     border-bottom: solid 2px #42404E;
 }
 
-.header > *{
+.header > * {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.topArea{
+    height: 70%;
+    background-color: #565e75;
+    align-items: center;
+    font-size: larger;
+}
+
+.topArea > * {
+    text-align: center;
+}
+
+.lowerArea{
+    height: 30%;
+    background-color: #ced9e2;
+}
+
+.header > * > *{
     flex: 1 1 100%;
 }
 
 .logInInformation{
-    flex: 1 2 50%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    font-family: "Lucida Handwriting";
+    color: black;
+    font-size: 2vw;
 }
 
 .logInInformation > * {
@@ -25,45 +43,27 @@
 }
 
 .logoContainer{
-    margin-left: 1vw;
 }
 
 .linkContainer{
     display: flex;
     flex-direction: row;
     text-align: center;
-    margin-right: 1vw;
-}
-
-.aboutLink{
-    background: none;
-    height: 50%;
-    font-size: 1.5vw;
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    text-indent: 0;
-    line-height: normal;
-    display: block;
-    color: #42404E;
-    text-align: center;
-    align-content: center;
-    text-decoration: none;
-    word-spacing: normal;
-    transition: 0.35s;
+    margin-left: 50vw;
 }
 
 .linkContainer *{
     background: none;
     margin: auto;
-    height: 50%;
-    font-size: 1.5vw;
+    height: 80%;
+    font-size: large;
     width: 100%;
     border: none;
     cursor: pointer;
     border-radius: 10px;
     text-indent: 0;
     line-height: normal;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: inline-block;
     margin: auto 1vw auto 1vw;
     color: #42404E;
@@ -76,9 +76,9 @@
 }
 
 .linkContainer *:hover, .selected{
-    background-color: #42404E;
+    background-color: #8e99a2;
     transform: scale(1.05);
-    color: #F3F3F3;
+    color: black;
 }
 
 .hamburgerButton{
@@ -94,8 +94,8 @@
 }
 
 .hamburgerButton:hover, .hamburgerButtonOpen, .hamburgerContainer *:hover, .aboutLink:hover{
-    background-color: #42404E;
-    color: #F3F3F3;
+    background-color: #8e99a2;
+    color: black;
 }
 
 .hamburgerButton::before{
@@ -107,7 +107,7 @@
     flex-direction: column;
     top: 10vh;
     width: 100%;
-    background: #F3F3F3;
+    background: #ced9e2;
     display: none;
     border-bottom: solid 1px #42404E;
 }
@@ -116,6 +116,7 @@
     text-align: center;
     text-decoration: none;
     color: #42404E;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: normal;
     padding-top: 2vh;
     padding-bottom: 2vh;
@@ -127,19 +128,38 @@
 
 .aboutContainer{
     position: absolute;
-    right: 2vw;
     border: solid #42404E 2px;
-    background-color: #F3F3F3;
-    top: 10vh;
+    background-color: #ced9e2;
+    top: 0vh;
     min-width: 20vw;
-    border-radius: 10px;
     text-align: center;
     align-items: center;
-    min-height: 5vh;
-    font-size: 1.5vw;
+    min-height: fit-content;
+    font-size: larger;
     display: none;
     transition: 0.35s;
     overflow: hidden;
+    right: 0px;
+    top: 17vh;
+}
+
+.aboutLink{
+    background: none;
+    height: 50%;
+    font-size: normal;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    text-indent: 0;
+    line-height: normal;
+    display: block;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #42404E;
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
+    word-spacing: normal;
+    transition: 0.35s;
 }
 
 @media screen and (max-width: 700px){

@@ -1,9 +1,13 @@
+import styles from "./style.module.css"
 import Link from "next/link";
-import ExpressionList from "../../components/expression-list";
+import ExpressionList from "../../components/expression/expression-list";
 import RemoveLocalStorage from "../../components/remove-local-storage";
 import SearchBar from "../../components/search-bar";
 import SortButton from "../../components/sort-button";
 import { createClient } from "../../lib/supabase/server";
+import Image from "next/image";
+import mindSpaceIcon from "./mind-space.png";
+import thoughtIcon from "./thought-icon.png";
 
 export default async function ExpressPage({searchParams}:{searchParams:Promise<{error:string, sort: number|undefined, search: string|undefined, page: number|undefined}>}){
     let banner = (null);
@@ -34,14 +38,33 @@ export default async function ExpressPage({searchParams}:{searchParams:Promise<{
             <input type="submit" value="Set Page"/>
         </form>
     </div>);
-    return (<div>
-        <RemoveLocalStorage storageKey="expressionDraft"/>
-        <h1>Expressions: (Private)</h1>
-        <SearchBar sortOldestFirst={oldestFirst}/>
-        <p>Current search: {searchQuery}</p>
-        <SortButton searchQuery={searchQuery} sortOldestFirst={oldestFirst}/>
-        <Link className="addButton" href="/express/add">+ Add an expression</Link>
-        <ExpressionList sortOldestFirst={oldestFirst} searchQuery={searchQuery} page={page} contentPerPage={contentPerPage}/>
-        {paginationBar}
+    return (<div className={styles.panel}>
+        <div className={styles.leftSide}>
+            <div className={styles.iconContainer}>
+                <Image src={mindSpaceIcon} alt="mind space icon" className={styles.mindSpaceIcon}/>
+                <div className={styles.mindSpaceInfo}>
+                    <p style={{fontWeight: "bold", margin: "auto 0 0 0"}}>mind space</p>
+                    <p style={{margin: "0 0 auto 0"}}>a space for you</p>
+                </div>
+            </div>
+            <div className={styles.linkGroup}>
+                <Link className={styles.linkContainer} href="/express">
+                    <Image className={styles.linkIcon} src={thoughtIcon} alt="thought icon"/>
+                    <p>My Thoughts</p>
+                </Link>
+                <Link className={styles.linkContainer} href="/express/add">New Entry</Link>
+                <Link className={styles.linkContainer} href="/express/mood-tracker">Mood Tracker</Link>
+            </div>
+        </div>
+        <div className={styles.rightSide}>
+            <RemoveLocalStorage storageKey="expressionDraft"/>
+            <h1>Expressions: (Private)</h1>
+            <SearchBar sortOldestFirst={oldestFirst}/>
+            <p>Current search: {searchQuery}</p>
+            <SortButton searchQuery={searchQuery} sortOldestFirst={oldestFirst}/>
+            <Link className="addButton" href="/express/add">+ Add an expression</Link>
+            <ExpressionList sortOldestFirst={oldestFirst} searchQuery={searchQuery} page={page} contentPerPage={contentPerPage}/>
+            {paginationBar}
+        </div>
     </div>);
 }

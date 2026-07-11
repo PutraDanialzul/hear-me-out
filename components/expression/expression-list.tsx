@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { createClient } from "../lib/supabase/server";
-import styles from "./list-style.module.css"
-import { BlockList } from "node:net";
+import { createClient } from "../../lib/supabase/server";
+import styles from "../list-style.module.css"
 
 interface Expression{
     created_at: string,

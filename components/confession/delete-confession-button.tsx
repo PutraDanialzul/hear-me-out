@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from "next/navigation";
-import { createClient } from "../lib/supabase/client";
+import { createClient } from "../../lib/supabase/client";
 
 export default function DeleteConfessionButton({confessionId, disabled}:{confessionId: string, disabled: boolean}){
     const router = useRouter();

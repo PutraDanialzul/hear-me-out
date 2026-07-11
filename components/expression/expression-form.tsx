@@ -1,7 +1,7 @@
-import styles from "./form-style.module.css";
+import styles from "../form-style.module.css";
 import { redirect } from "next/navigation";
-import { createClient } from "../lib/supabase/server";
-import DraftTextarea from "./draft-textarea";
+import { createClient } from "../../lib/supabase/server";
+import DraftTextarea from "../draft-textarea";
 
 export default function ExpressionForm(){
 

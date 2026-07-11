@@ -1,8 +1,8 @@
 'use client';
 
-import styles from "./auth-button-style.module.css"
+import styles from "../auth-button-style.module.css"
 import { Provider } from "@supabase/supabase-js";
-import { createClient } from "../lib/supabase/client";
+import { createClient } from "../../lib/supabase/client";
 
 export default function SignInButton(){
     async function signIn(){

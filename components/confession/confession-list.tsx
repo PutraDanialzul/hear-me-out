@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { createClient } from "../lib/supabase/server";
-import styles from "./list-style.module.css"
+import { createClient } from "../../lib/supabase/server";
+import styles from "../list-style.module.css"
 
 interface Confession{
     created_at: string,

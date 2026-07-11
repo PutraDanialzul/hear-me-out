@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "../../../lib/supabase/server";
 import Link from "next/link";
-import DeleteReportButton from "../../../components/delete-report-button";
+import DeleteReportButton from "../../../components/report/delete-report-button";
 
 export default async function ReportDataPage({searchParams}:{searchParams:Promise<{id:string}>}){
     interface Report{

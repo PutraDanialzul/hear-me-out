@@ -1,7 +1,7 @@
 import styles from "../../components/displayer-style.module.css"
 import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
-import DeleteExpressionButton from "../../components/delete-expression-button";
+import DeleteExpressionButton from "../../components/expression/delete-expression-button";
 
 export default async function ExpressionPage({searchParams}:{searchParams:Promise<{id:string}>}){
 
