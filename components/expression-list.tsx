@@ -10,12 +10,12 @@ interface Expression{
 }
 
 
-export default async function ExpressionList({sortOldestFirst, searchQuery}: {sortOldestFirst: boolean, searchQuery: string}){
+export default async function ExpressionList({sortOldestFirst, searchQuery, contentPerPage, page}: {sortOldestFirst: boolean, searchQuery: string, contentPerPage: number, page: number}){
 
 
     async function getExpressions():Promise<Expression[]>{
         const supabase = await createClient();
-        const selection = await supabase.from("expression").select("created_at, text, id").ilike("text", `%${searchQuery}%`).order("created_at", {ascending: sortOldestFirst});
+        const selection = await supabase.from("expression").select("created_at, text, id").ilike("text", `%${searchQuery}%`).order("created_at", {ascending: sortOldestFirst}).range(contentPerPage*page, contentPerPage*(page)+contentPerPage-1);
         return selection.data ?? [];
     }
 
