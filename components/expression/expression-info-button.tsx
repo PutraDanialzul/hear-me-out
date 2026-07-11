@@ -16,7 +16,7 @@ export default function ExpressionInfoButton(){
     }, []);
 
     return (<span>
-        <span onClick={()=>{setShowInfo(prev => !prev);}} className={styles.infoButton}/>
+        <button onClick={()=>{setShowInfo(prev => !prev);}} className={styles.infoButton}/>
         {showInfo ? infoBox : null}
     </span>);
 }
