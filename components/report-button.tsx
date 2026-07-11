@@ -2,7 +2,7 @@
 
 import { createClient } from "../lib/supabase/client";
 
-export default function ReportButton({confessionId}:{confessionId:string}){
+export default function ReportButton({confessionId, disabled}:{confessionId:string, disabled: boolean}){
     
     async function reportConfession(){
         const result = prompt("Please state your reasons to report this confession: (optional)");
@@ -24,5 +24,5 @@ export default function ReportButton({confessionId}:{confessionId:string}){
         }
     }
 
-    return <button onClick={reportConfession}>Report Confession</button>
+    return <button disabled={disabled} onClick={reportConfession}>Report Confession</button>
 }

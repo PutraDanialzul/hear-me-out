@@ -40,7 +40,7 @@ export default async function ConfessionPage({searchParams}:{searchParams:Promis
             <p>Created at: {confession.created_at}</p>
             <p>Verified: {confession.verified ? "true" : "false"}</p>
         </div>
-        <ReportButton confessionId={confession.id}/>
+        <ReportButton disabled={!authorized} confessionId={confession.id}/>
         <br/>
         <DeleteConfessionButton disabled={!authorized} confessionId={confession.id}/>
         <br/>
