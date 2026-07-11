@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "../lib/supabase/server";
 import styles from "./list-style.module.css"
+import { BlockList } from "node:net";
 
 interface Expression{
     created_at: string,
@@ -9,12 +10,12 @@ interface Expression{
 }
 
 
-export default async function ExpressionList(){
+export default async function ExpressionList({sortOldestFirst, searchQuery}: {sortOldestFirst: boolean, searchQuery: string}){
 
 
     async function getExpressions():Promise<Expression[]>{
         const supabase = await createClient();
-        const selection = await supabase.from("expression").select("created_at, text, id").order("created_at", {ascending: false});
+        const selection = await supabase.from("expression").select("created_at, text, id").ilike("text", `%${searchQuery}%`).order("created_at", {ascending: sortOldestFirst});
         return selection.data ?? [];
     }
 

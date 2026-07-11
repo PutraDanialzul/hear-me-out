@@ -9,11 +9,11 @@ interface Confession{
     verified: boolean
 }
 
-export default async function ConfessionList(){
+export default async function ConfessionList({sortOldestFirst, searchQuery}:{sortOldestFirst:boolean, searchQuery: string}){
 
     async function getConfessions():Promise<Confession[]>{
         const supabase = await createClient();
-        const selection = await supabase.from("confession").select("created_at, text, id, verified").order("created_at", {ascending: false});
+        const selection = await supabase.from("confession").select("created_at, text, id, verified").ilike("text", `%${searchQuery}%`).order("created_at", {ascending: sortOldestFirst});
         return selection.data ?? [];
     }
 
