@@ -25,3 +25,9 @@
 .searchBar:has(.textInput:focus){
     border: solid 2px black;
 }
+
+@media screen and (max-width: 700px){
+    .textInput{
+        width: 30vw;
+    }
+}

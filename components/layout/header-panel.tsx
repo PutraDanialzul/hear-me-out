@@ -84,7 +84,7 @@ export default function HeaderPanel(){
                         <Link href="/" className={pathname == "/" || pathname == "/confession" ? styles.selected : ""}>Confessions</Link>
                         <Link href="/confess" className={pathname == "/confess" ? styles.selected : ""}>Confess</Link>
                         <Link href="/express" className={pathname == "/express" || pathname == "/express/add" || pathname == "/expression" ? styles.selected : ""}>Express</Link>
-                        <button className={showAbout ? styles.selected : ""} onClick={onAboutButtonClick}>About {showAbout ? "⮝" : "⮟"}</button>
+                        <button className={showAbout ? styles.selected : ""} onClick={onAboutButtonClick}>About {showAbout ? "▲" : "▼"}</button>
                     </div>
                     <button className={styles.hamburgerButton + (showHamburgerContents ? " "+styles.hamburgerButtonOpen : "")} onClick={onHamburgerButtonClick}/>
                 </div>

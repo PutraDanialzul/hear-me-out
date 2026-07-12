@@ -101,14 +101,15 @@
     }
     .leftSide{
         width: 90%;
-        padding: 3vh 5%;
+        padding: 3vh auto;
         border-bottom: solid 2px black;
     }
     .linkGroup{
         flex-direction: row;
     }
     .linkContainer{
-        margin: 3vh 2vw 1vh 2vw;
+        margin: 3vh 1vw 1vh 1vw;
+        font-size: smaller;
     }
     .iconContainer{
         margin: 2vh 1vw;

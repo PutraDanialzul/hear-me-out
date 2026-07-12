@@ -7,9 +7,9 @@
 }
 
 .oldestFirst::before{
-    content: "Oldest ⮝";
+    content: "Oldest ▲";
 }
 
 .newestFirst::before{
-    content: "Newest ⮟";
+    content: "Newest ▼";
 }
