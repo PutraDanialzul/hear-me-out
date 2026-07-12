@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 
 export default function MindSpaceLeft(){
     const pathname = usePathname();
+    const matchSize = window.matchMedia("screen and (max-width: 700px)");
     return (
     <div className={styles.leftSide}>
         <div className={styles.iconContainer}>

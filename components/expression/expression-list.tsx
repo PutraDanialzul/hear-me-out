@@ -24,7 +24,6 @@ export default async function ExpressionList({sortOldestFirst, searchQuery, cont
     async function getExpressions():Promise<Expression[]>{
         const supabase = await createClient();
         const selection = await supabase.from("expression").select("created_at, text, id").ilike("text", `%${searchQuery}%`).order("created_at", {ascending: sortOldestFirst}).range(contentPerPage*(page-1), contentPerPage*(page-1)+contentPerPage-1);
-        console.log(new Date(selection.data[0]?.created_at).toLocaleString());
         return selection.data ?? [];
     }
     const expressions = await getExpressions();

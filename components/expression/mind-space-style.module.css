@@ -10,7 +10,6 @@
 
 .leftSide{
     width: 30%;
-    border-right: solid 1px black;
     padding: 1vw 2vh 1vw 2vh;
     display: flex;
     flex-direction: column;
@@ -20,6 +19,7 @@
     max-height: 20%;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .iconContainer > * {
@@ -43,6 +43,7 @@
     align-items: center;
     align-content: center;
     margin-right: auto;
+    max-width: fit-content;
 }
 
 .linkGroup{
@@ -90,6 +91,31 @@
 
 .rightSide{
     width: 70%;
-    border-left: solid 1px black;
+    border-left: solid 2px black;
     padding: 1vw 2vh 1vw 2vh;
+}
+
+@media screen and (max-width: 700px){
+    .panel{
+        flex-direction: column;
+    }
+    .leftSide{
+        width: 90%;
+        padding: 3vh 5%;
+        border-bottom: solid 2px black;
+    }
+    .linkGroup{
+        flex-direction: row;
+    }
+    .linkContainer{
+        margin: 3vh 2vw 1vh 2vw;
+    }
+    .iconContainer{
+        margin: 2vh 1vw;
+    }
+    .rightSide{
+        border-left: none;
+        padding: 0;
+        margin: 0 auto;
+    }
 }
