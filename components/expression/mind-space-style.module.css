@@ -118,5 +118,6 @@
         border-left: none;
         padding: 0;
         margin: 0 auto;
+        width: fit-content;
     }
 }
