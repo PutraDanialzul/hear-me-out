@@ -1,7 +1,9 @@
 import styles from "./style.module.css"
 import ConfessionForm from "../../components/confession/confession-form";
+import OldConfessionMenu from "../../components/confession/old-confession-menu";
 
 export default async function ConfessPage({searchParams}:{searchParams:Promise<{error:string}>}){
+
     let banner = (null);
     const error = (await searchParams).error;
     if(error)
@@ -11,10 +13,11 @@ export default async function ConfessPage({searchParams}:{searchParams:Promise<{
             </div>
         );
     return (
-        <div>
+        <div className={styles.mainPage}>
             {banner} 
-            <h1>Confess: </h1>
+            <h1 className={styles.title}>Confess</h1>
             <ConfessionForm/>
+            <OldConfessionMenu/>
         </div>
     );
 }

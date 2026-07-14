@@ -1,8 +1,8 @@
 .form{
-    width: 45vw;
+    width: 80%;
     height: 50vh;
     border: solid 1px black;
-    margin: 10vh auto 5vh auto;
+    margin: 10px auto 5vh auto;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -31,13 +31,13 @@
 }
 
 .areaBox{
-    height: 95%;
+    height: 85%;
     padding: 2.5%;
     width: 95%;
 }
 
 .sendButton{
-    height: 20%;
+    height: 10%;
     display: block;
     border: none;
     background-color: #ced9e2;
@@ -46,7 +46,6 @@
     transition: 0.35s;
     width: 100%;
     border-top: solid 1px black;
-    padding: 2vh 0;
     font-size: larger;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

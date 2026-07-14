@@ -32,15 +32,9 @@ export default function ConfessionForm(){
     }
 
     return (
-        <div className={styles.container}>
-            <form action={addConfession}>
-                <fieldset className={styles.form}>
-                    <legend>Hear Me Out</legend>
-                    <label className={styles.label} htmlFor="textarea">Please write your confession: </label>
-                    <DraftTextarea name="text" storageKey="confessionDraft"/>
-                    <input className={styles.sendButton} type="submit" value={"Confess"}/>
-                </fieldset>
-            </form>
-        </div>
+        <form className={styles.form} action={addConfession}>
+            <DraftTextarea name="text" placeholder="What's on your mind? " storageKey="confessionDraft"/>
+            <input className={styles.sendButton} type="submit" value={"Publish"}/>
+        </form>
     );
 }

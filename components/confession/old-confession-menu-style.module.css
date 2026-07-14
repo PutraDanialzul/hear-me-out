@@ -1,0 +1,81 @@
+.oldConfessionMenu{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.oldConfessionMenu h1{
+    text-align: center;
+}
+
+.previousButton, .nextButton{
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: x-large;
+    width: fit-content;
+    height: fit-content;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.previousButton{
+    left: 0;
+}
+
+.previousButton::before{
+    content: "⮜";
+}
+
+.nextButton{
+    right: 0;
+}
+
+.nextButton::before{
+    content: "⮞";
+}
+
+.cardContainer{
+    position: relative;
+    width: 95%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    padding: 0 2.5%;
+    justify-content: center;
+}
+
+.card{
+    height: 20vh;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #ced9e2;
+    width: 20%;
+    margin: 0 1vw;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: black;
+    transition: 0.35s;
+}
+
+.cardDate{
+    margin: 0;
+    border-bottom: solid 1px black;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+.cardContent{
+    margin: 0;
+    border-top: solid 1px black;
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card:hover{
+    transform: scale(1.05) translateY(-2.5%);
+}
