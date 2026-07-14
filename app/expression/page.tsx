@@ -1,7 +1,9 @@
-import styles from "../../components/displayer-style.module.css"
+import styles from "./style.module.css"
 import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
 import DeleteExpressionButton from "../../components/expression/delete-expression-button";
+import Link from "next/link";
+import { getDate } from "../../lib/functions";
 
 export default async function ExpressionPage({searchParams}:{searchParams:Promise<{id:string}>}){
 
@@ -20,13 +22,17 @@ export default async function ExpressionPage({searchParams}:{searchParams:Promis
     }
     const expression = select.data as Expression;
 
-    return (<div>
-        <h1>Expression Displayer: </h1>
-        <p className={styles.textContainer}>{expression.text}</p>
-        <div className={styles.metadataContainer}>
-            <p>ID: {expression.id}</p>
-            <p>Created at: {expression.created_at}</p>
+    return (<div className={styles.expressionDisplayer}>
+        <Link href="/express" className={styles.goBack}/>
+        <div className={styles.title}>That day I felt...</div>
+        <div className={styles.container}>
+            <div className={styles.timeContainer}>
+                <span className={styles.date}>{getDate(expression.created_at)}</span>
+                <span className={styles.time}>{new Date(expression.created_at).toLocaleTimeString()}</span>
+            </div>
+            <p className={styles.textContainer}>{expression.text}</p>
+            <DeleteExpressionButton expressionId={expression.id}/>
+            <p className={styles.id}>{expression.id}</p>
         </div>
-        <DeleteExpressionButton expressionId={expression.id}/>
     </div>);
 }

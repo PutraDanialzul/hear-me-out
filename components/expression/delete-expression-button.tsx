@@ -1,5 +1,6 @@
 'use client';
 
+import styles from "./delete-button-style.module.css";
 import { useRouter } from "next/navigation";
 import { createClient } from "../../lib/supabase/client";
 
@@ -17,5 +18,5 @@ export default function DeleteExpressionButton({expressionId}:{expressionId: str
         alert("The expression has been deleted.");
         router.replace("/express");
     }
-    return (<button onClick={onClick}>Delete Expression</button>)
+    return (<button className={styles.deleteButton} onClick={onClick}/>);
 }

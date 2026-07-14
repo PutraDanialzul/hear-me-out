@@ -15,7 +15,8 @@ export default async function AddExpressionPage({searchParams}:{searchParams:Pro
         <MindSpacePanel>
             <div>
                 {banner} 
-                <h1>New Thoughts <ExpressionInfoButton/></h1> 
+                <h1>New Thoughts</h1>
+                <ExpressionInfoButton/> 
                 <ExpressionForm/>
             </div>
         </MindSpacePanel>

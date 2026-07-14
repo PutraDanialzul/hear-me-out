@@ -24,10 +24,6 @@ export default function MindSpaceLeft(){
                 <p className={styles.linkEmoji}>✏️</p>
                 <p className={styles.linkInfo}>New Entry</p>
             </Link>
-            <Link className={styles.linkContainer+(pathname == "/express/mood-tracker" ? " "+styles.selected : "")} href="/express/mood-tracker">
-                <p className={styles.linkEmoji}>😊</p>
-                <p className={styles.linkInfo}>Mood Tracker</p>
-            </Link>
         </div>
     </div>);
 }

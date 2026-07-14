@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "../../lib/supabase/server";
 import styles from "../list-style.module.css"
+import { getDate } from "../../lib/functions";
 
 interface Expression{
     created_at: string,
@@ -10,16 +11,6 @@ interface Expression{
 
 
 export default async function ExpressionList({sortOldestFirst, searchQuery, contentPerPage, page}: {sortOldestFirst: boolean, searchQuery: string, contentPerPage: number, page: number}){
-
-
-    function getDate(dateString){
-        const date = new Date(dateString);
-        const day = date.getDate();
-        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const month = months[date.getMonth()];
-        const year = date.getFullYear();
-        return "" + day + " " + month + " " + year;
-    }
 
     async function getExpressions():Promise<Expression[]>{
         const supabase = await createClient();

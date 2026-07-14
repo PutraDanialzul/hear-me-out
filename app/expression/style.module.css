@@ -1,0 +1,63 @@
+.expressionDisplayer{
+    background-color: white;
+    width: 80vw;
+    height: 80vh;
+    border-radius: 10px;
+    margin: 30px auto;
+    padding: 50px;
+}
+
+.goBack{
+    color: #486782;
+    text-decoration: none;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+}
+
+.goBack::before{
+    content: "⮜ go back";
+}
+
+.title{
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    font-size: 3vw;
+}
+
+.container{
+    border: solid 1px black;
+    border-radius: 10px;
+    padding: 10px 25px;
+    position: relative;
+}
+
+.timeContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.timeContainer > *{
+    width: 50%;
+    text-align: center;
+}
+
+.date{
+    border-right: solid 1px black;
+}
+
+.time{
+    border-left: solid 1px black;
+}
+
+.id{
+    position:absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 0px;
+    margin: 0px;
+    font-size: xx-small;
+    opacity: 0.35;
+}

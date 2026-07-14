@@ -5,9 +5,6 @@ import RemoveLocalStorage from "../../components/remove-local-storage";
 import SearchBar from "../../components/search-bar";
 import SortButton from "../../components/sort-button";
 import { createClient } from "../../lib/supabase/server";
-import Image from "next/image";
-import mindSpaceIcon from "./mind-space.png";
-import thoughtIcon from "./thought-icon.png";
 import MindSpacePanel from "../../components/expression/mind-space-panel";
 
 export default async function ExpressPage({searchParams}:{searchParams:Promise<{error:string, sort: number|undefined, search: string|undefined, page: number|undefined}>}){
@@ -22,7 +19,7 @@ export default async function ExpressPage({searchParams}:{searchParams:Promise<{
         );
     const oldestFirst = parameter.sort == 1 ? true : false;
     const searchQuery = parameter.search?.trim() ?? "";
-    const contentPerPage = 10;
+    const contentPerPage = 5;
     const supabase = await createClient();
     const selection = await supabase.from("expression").select("created_at, text, id").ilike("text", `%${searchQuery}%`);
     const totalCount = selection.data?.length ?? 0;
