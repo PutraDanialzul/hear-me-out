@@ -1,2 +1,91 @@
+.pageContent{
+    background-color: white;
+    width: 80vw;
+    height: fit-content;
+    padding: 20px 0;
+    margin: 20px auto;
+    border-radius: 10px;
+}
 
+.title{
+    display: inline;
+}
 
+.top{
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: solid 1px black;
+}
+
+.bottom{
+    padding: 20px;
+}
+
+.navigationBar{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+.navigationBar * {
+    display: block;
+    width: 200px;
+    height: 20px;
+    padding: 0;
+}
+
+.search{
+    margin-right: auto;
+}
+
+.sort{
+    margin-left: auto;
+}
+
+.pageInfo{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.paginationBar{
+    position: relative;
+    width: 10%;
+    margin: 0 auto;
+}
+
+.paginationBar input{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    background: none;
+    border: none;
+}
+
+.nextButton, .prevButton{
+    text-decoration: none;
+    color: black;
+}
+
+.nextButton{
+    position: absolute;
+    right: 0;
+    top: 25%;
+}
+
+.nextButton::before{
+    content: "⮞";
+}
+
+.prevButton{
+    position: absolute;
+    left: 0;
+    top: 25%;
+}
+
+.prevButton::before{
+    content: "⮜";
+}

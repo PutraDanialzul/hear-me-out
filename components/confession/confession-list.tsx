@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "../../lib/supabase/server";
 import styles from "../list-style.module.css"
+import { getDate } from "../../lib/functions";
 
 interface Confession{
     created_at: string,
@@ -13,7 +14,7 @@ export default async function ConfessionList({sortOldestFirst, searchQuery, page
 
     async function getConfessions():Promise<Confession[]>{
         const supabase = await createClient();
-        const selection = await supabase.from("confession").select("created_at, text, id, verified").ilike("text", `%${searchQuery}%`).order("created_at", {ascending: sortOldestFirst}).range(contentPerPage*page, contentPerPage*(page)+contentPerPage-1);
+        const selection = await supabase.from("confession").select("created_at, text, id, verified").ilike("text", `%${searchQuery}%`).order("created_at", {ascending: sortOldestFirst}).range(contentPerPage*(page-1), contentPerPage*(page-1)+contentPerPage-1);
         return selection.data ?? [];
     }
 
@@ -21,9 +22,14 @@ export default async function ConfessionList({sortOldestFirst, searchQuery, page
     return (
         <div>
             {confessions.map((confession)=>(
-                <Link href={"/confession?id="+confession.id} key={confession.id} className={confession.verified ? styles.contentBox : styles.unverifiedBox}>
-                    <p>Time Created: {confession.created_at} {!confession.verified ? "(unverified)" : ""}</p>
-                    <p>{confession.text}</p>
+                <Link href={"/confession?id="+confession.id} key={confession.id} className={styles.contentBox}>
+                    <div className={styles.topArea}>
+                        {getDate(confession.created_at)+" | "+new Date(confession.created_at).toLocaleTimeString()}
+                    </div>
+                    <div className={styles.lowerArea}>
+                        <span className={styles.text}>{confession.text}</span>
+                        <span className={styles.readMore}>Read More</span>
+                    </div>
                 </Link>
             ))}
         </div>

@@ -25,16 +25,14 @@ export default async function ExpressPage({searchParams}:{searchParams:Promise<{
     const totalCount = selection.data?.length ?? 0;
     const pageCount = Math.ceil(totalCount/contentPerPage);
     const page = Math.max(1, Math.min(parameter.page ?? 1, pageCount));
-    const paginationBar = (<div className="paginationBar">
-        {page > 1 ? <Link href={`/?search=${encodeURIComponent(searchQuery)}&sort=${encodeURIComponent(oldestFirst ? 1 : 0)}&page=${page-1}`}>Previous Page</Link> : null}
-        <p>Current page: {page}</p>
-        {page < pageCount ? <Link href={`/?search=${encodeURIComponent(searchQuery)}&sort=${encodeURIComponent(oldestFirst ? 1 : 0)}&page=${page+1}`}>Next Page</Link> : null}
+    const paginationBar = (<div className={styles.paginationBar}>
+        {page > 1 ? <Link className={styles.prevButton} href={`/express?search=${encodeURIComponent(searchQuery)}&sort=${encodeURIComponent(oldestFirst ? 1 : 0)}&page=${page-1}`}/> : null}
         <form>
             <input type="hidden" name="search" value={searchQuery}/>
             <input type="hidden" name="sort" value={oldestFirst ? 1 : 0}/>
-            <input type="number" name="page" min={1} max={pageCount}/>
-            <input type="submit" value="Set Page"/>
+            <input type="number" name="page" defaultValue={page} min={1} max={pageCount}/>
         </form>
+        {page < pageCount ? <Link className={styles.nextButton} href={`/express?search=${encodeURIComponent(searchQuery)}&sort=${encodeURIComponent(oldestFirst ? 1 : 0)}&page=${page+1}`}/> : null}
     </div>);
     return (<MindSpacePanel>
         <RemoveLocalStorage storageKey="expressionDraft"/>

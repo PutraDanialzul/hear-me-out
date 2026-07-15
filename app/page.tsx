@@ -32,29 +32,34 @@ export default async function Page({searchParams}:{searchParams:Promise<{error:s
     const selection = await supabase.from("confession").select("created_at, text, id").ilike("text", `%${searchQuery}%`);
     const totalCount = selection.data?.length ?? 0;
     const pageCount = Math.ceil(totalCount/contentPerPage);
-    const page = Math.max(0, Math.min(parameter.page ?? 0, pageCount-1));
-    const paginationBar = (<div className="paginationBar">
-        {page > 0 ? <Link href={`/?search=${encodeURIComponent(searchQuery)}&sort=${encodeURIComponent(oldestFirst ? 1 : 0)}&page=${page-1}`}>Previous Page</Link> : null}
-        <p>Current page: {page}</p>
-        {page < pageCount-1 ? <Link href={`/?search=${encodeURIComponent(searchQuery)}&sort=${encodeURIComponent(oldestFirst ? 1 : 0)}&page=${page+1}`}>Next Page</Link> : null}
+    const page = Math.max(1, Math.min(parameter.page ?? 1, pageCount));
+    const paginationBar = (<div className={styles.paginationBar}>
+        {page > 1 ? <Link className={styles.prevButton} href={`/?search=${encodeURIComponent(searchQuery)}&sort=${encodeURIComponent(oldestFirst ? 1 : 0)}&page=${page-1}`}/> : null}
         <form>
             <input type="hidden" name="search" value={searchQuery}/>
             <input type="hidden" name="sort" value={oldestFirst ? 1 : 0}/>
-            <input type="number" name="page" min={0} max={pageCount-1}/>
-            <input type="submit" value="Set Page"/>
+            <input type="number" name="page" defaultValue={page} min={1} max={pageCount}/>
         </form>
+        {page < pageCount ? <Link className={styles.nextButton} href={`/?search=${encodeURIComponent(searchQuery)}&sort=${encodeURIComponent(oldestFirst ? 1 : 0)}&page=${page+1}`}/> : null}
     </div>);
+    const resetPage = searchQuery ? (<Link href={`/?sort=${oldestFirst ? 1 : 0}`}>reset</Link>) : null;
     return (
-        <div>
+        <div className={styles.pageContent}>
             <RemoveLocalStorage storageKey="confessionDraft"/>
             {banner}
-            <h1>Hear Me Out: (Public) {reportLink}</h1>
-            <SearchBar sortOldestFirst={oldestFirst}/>
-            <p>Current Search: {searchQuery}</p>
-            <SortButton searchQuery={searchQuery} sortOldestFirst={oldestFirst}/>
-            <Link className="addButton" href="/confess">+ Add a confession</Link>
-            <ConfessionList sortOldestFirst={oldestFirst} searchQuery={searchQuery} contentPerPage={contentPerPage} page={page}/>
-            {paginationBar}
+            <div className={styles.top}>
+                <h1 className={styles.title}>Confessions</h1> {reportLink}
+            </div>
+            <div className={styles.bottom}>
+                <div className={styles.navigationBar}>
+                    <SearchBar className={styles.search} sortOldestFirst={oldestFirst}/>
+                    <SortButton className={styles.sort} searchQuery={searchQuery} sortOldestFirst={oldestFirst}/>
+                </div>
+                <p>Current Search: {searchQuery} {resetPage}</p>
+                <p className={styles.pageInfo}>Page {page} of {pageCount}</p>
+                <ConfessionList sortOldestFirst={oldestFirst} searchQuery={searchQuery} contentPerPage={contentPerPage} page={page}/>
+                {paginationBar}
+            </div>
         </div>
     );
 }
