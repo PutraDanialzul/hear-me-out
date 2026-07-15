@@ -50,6 +50,7 @@
 }
 
 .logoContainer{
+    height: 100%;
 }
 
 .linkContainer{
@@ -166,6 +167,16 @@
     text-decoration: none;
     word-spacing: normal;
     transition: 0.35s;
+}
+
+.logo{
+    height: 90%;
+    width: auto;
+    transition: 0.35s;
+}
+
+.logo:hover{
+    transform: scale(1.05);
 }
 
 @media screen and (max-width: 700px){

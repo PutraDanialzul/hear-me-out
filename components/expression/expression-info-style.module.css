@@ -18,7 +18,7 @@
     position: absolute;
     font-size: small;
     border: solid 1px black;
-    width: 30vw;
+    width: max(30vw, 150px);
     height: fit-content;
     left: 150%;
 }

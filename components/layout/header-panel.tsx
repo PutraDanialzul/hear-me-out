@@ -7,6 +7,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { createClient } from "../../lib/supabase/client";
 import SignOutButton from "./sign-out-button";
 import SignInButton from "./sign-in-button";
+import logo from "../../app/images/logo.png";
+import Image from "next/image";
 
 export default function HeaderPanel(){
     const router = useRouter();
@@ -71,7 +73,7 @@ export default function HeaderPanel(){
                     <div className={styles.logInInformation}>
                         {"Not signed in"}
                     </div>}
-                    <div className={styles.logoContainer}>[LOGO]</div>
+                    <div className={styles.logoContainer}><Image className={styles.logo} alt="Hear Me Out logo" src={logo}/></div>
                     {loggedIn ? (<div className={styles.buttonContainer}>
                         <SignOutButton/>
                     </div>) : 
