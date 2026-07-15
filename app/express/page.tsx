@@ -27,11 +27,7 @@ export default async function ExpressPage({searchParams}:{searchParams:Promise<{
     const page = Math.max(1, Math.min(parameter.page ?? 1, pageCount));
     const paginationBar = (<div className={styles.paginationBar}>
         {page > 1 ? <Link className={styles.prevButton} href={`/express?search=${encodeURIComponent(searchQuery)}&sort=${encodeURIComponent(oldestFirst ? 1 : 0)}&page=${page-1}`}/> : null}
-        <form>
-            <input type="hidden" name="search" value={searchQuery}/>
-            <input type="hidden" name="sort" value={oldestFirst ? 1 : 0}/>
-            <input type="number" name="page" defaultValue={page} min={1} max={pageCount}/>
-        </form>
+        {page}
         {page < pageCount ? <Link className={styles.nextButton} href={`/express?search=${encodeURIComponent(searchQuery)}&sort=${encodeURIComponent(oldestFirst ? 1 : 0)}&page=${page+1}`}/> : null}
     </div>);
     return (<MindSpacePanel>

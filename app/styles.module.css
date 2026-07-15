@@ -51,18 +51,14 @@
 }
 
 .paginationBar{
-    position: relative;
-    width: 10%;
+    display: flex;
+    width: 100%;
     margin: 0 auto;
-}
-
-.paginationBar input{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    display: block;
-    margin: 0 auto;
     text-align: center;
     background: none;
     border: none;
+    justify-content: center;
 }
 
 .nextButton, .prevButton{
@@ -71,9 +67,7 @@
 }
 
 .nextButton{
-    position: absolute;
-    right: 0;
-    top: 25%;
+    margin-left: 5%;
 }
 
 .nextButton::before{
@@ -81,9 +75,7 @@
 }
 
 .prevButton{
-    position: absolute;
-    left: 0;
-    top: 25%;
+    margin-right: 5%;
 }
 
 .prevButton::before{
