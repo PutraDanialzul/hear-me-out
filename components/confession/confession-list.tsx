@@ -18,13 +18,15 @@ export default async function ConfessionList({sortOldestFirst, searchQuery, page
         return selection.data ?? [];
     }
 
+    const unverifiedMessage = (<span style={{color: "red"}}>(unverified)</span>);
+
     const confessions = await getConfessions();
     return (
         <div>
             {confessions.map((confession)=>(
                 <Link href={"/confession?id="+confession.id} key={confession.id} className={styles.contentBox}>
                     <div className={styles.topArea}>
-                        {getDate(confession.created_at)+" | "+new Date(confession.created_at).toLocaleTimeString()}
+                        {getDate(confession.created_at)+" | "+new Date(confession.created_at).toLocaleTimeString()} {confession.verified ? "" : unverifiedMessage}
                     </div>
                     <div className={styles.lowerArea}>
                         <span className={styles.text}>{confession.text}</span>
