@@ -47,6 +47,10 @@
     text-align: center;
 }
 
+.textContainer{
+    white-space: pre-line;
+}
+
 .date{
     border-right: solid 1px black;
 }

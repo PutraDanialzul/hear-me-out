@@ -57,7 +57,7 @@ export default function HeaderPanel(){
     }, [pathname]);
 
     return(
-        <div>
+        <div className={styles.mainContainer}>
             <div className={styles.aboutContainer} style={{display: showAbout ? "block" : "none"}}>
                 <Link className={styles.aboutLink} href="/about-us">About us</Link>
                 <Link className={styles.aboutLink} href="/about">About Hear Me Out</Link>
