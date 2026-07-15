@@ -39,7 +39,7 @@ export default async function ConfessionPage({searchParams}:{searchParams:Promis
 
     return (<div className={styles.confessionDisplayer}>
         <GoBackButton/>
-        <div className={styles.title}>{confession.confessor_id == userId ? "Confession" : "Hear Me Out"} {!confession.verified ? unverified : null}</div>
+        <div className={styles.title}>{confession.confessor_id == userId ? "Your Confession" : "Hear Me Out"} {!confession.verified ? unverified : null}</div>
         <div className={styles.container}>
             <div className={styles.timeContainer}>
                 <span className={styles.date}>{getDate(confession.created_at)}</span>

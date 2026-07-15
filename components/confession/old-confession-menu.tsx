@@ -55,6 +55,7 @@ export default function OldConfessionMenu(){
             const matchSize = window.matchMedia("screen and (max-width: 700px)");
             setHide(matchSize.matches);
         }
+        sizeFunction();
         window.addEventListener("resize", sizeFunction);
         return () => {
             window.removeEventListener("resize", sizeFunction);
