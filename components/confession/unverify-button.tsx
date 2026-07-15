@@ -1,5 +1,6 @@
 'use client';
 
+import styles from "../displayer-style.module.css"
 import { useRouter } from "next/navigation";
 import { createClient } from "../../lib/supabase/client";
 
@@ -20,5 +21,5 @@ export default function UnverifyButton({confessionId}:{confessionId:string}){
         router.refresh();
     }
 
-    return (<button onClick={verifyConfession}>Unverify Confession</button>);
+    return (<button className={styles.unverifyButton} onClick={verifyConfession}/>);
 }

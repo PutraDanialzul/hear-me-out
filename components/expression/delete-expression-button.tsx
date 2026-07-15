@@ -1,6 +1,6 @@
 'use client';
 
-import styles from "./delete-button-style.module.css";
+import styles from "../displayer-style.module.css";
 import { useRouter } from "next/navigation";
 import { createClient } from "../../lib/supabase/client";
 

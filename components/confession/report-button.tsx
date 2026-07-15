@@ -1,8 +1,9 @@
 'use client';
 
+import styles from "../displayer-style.module.css"
 import { createClient } from "../../lib/supabase/client";
 
-export default function ReportButton({confessionId, disabled}:{confessionId:string, disabled: boolean}){
+export default function ReportButton({confessionId}:{confessionId:string}){
     
     async function reportConfession(){
         const result = prompt("Please state your reasons to report this confession: (optional)");
@@ -24,5 +25,5 @@ export default function ReportButton({confessionId, disabled}:{confessionId:stri
         }
     }
 
-    return <button disabled={disabled} onClick={reportConfession}>Report Confession</button>
+    return <button className={styles.reportButton} onClick={reportConfession}/>
 }

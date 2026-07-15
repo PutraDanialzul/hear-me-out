@@ -1,9 +1,10 @@
-import styles from "./style.module.css"
+import styles from "../../components/displayer-style.module.css"
 import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
 import DeleteExpressionButton from "../../components/expression/delete-expression-button";
 import Link from "next/link";
 import { getDate } from "../../lib/functions";
+import GoBackButton from "../../components/go-back-button";
 
 export default async function ExpressionPage({searchParams}:{searchParams:Promise<{id:string}>}){
 
@@ -17,13 +18,13 @@ export default async function ExpressionPage({searchParams}:{searchParams:Promis
     const supabase = await createClient();
     const select = await supabase.from("expression").select("id, created_at, text").eq("id", params.id).maybeSingle();
     if(!select.data){
-        redirect("/express?error=Confession+not+found!");
+        redirect("/express?error=Expression+not+found!");
         return;
     }
     const expression = select.data as Expression;
 
     return (<div className={styles.expressionDisplayer}>
-        <Link href="/express" className={styles.goBack}/>
+        <GoBackButton/>
         <div className={styles.title}>That day I felt...</div>
         <div className={styles.container}>
             <div className={styles.timeContainer}>
