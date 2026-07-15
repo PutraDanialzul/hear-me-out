@@ -1,0 +1,50 @@
+.mainPanel{
+    width: 80%;
+    height: fit-content;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+}
+
+.title{
+    padding-top: 25px;
+    text-align: center;
+}
+
+.contents{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card{
+    margin: 10px 2vw;
+    text-align: center;
+}
+
+.picture{
+    display: inline-block;
+    border: solid 2px black;
+    width: 100px;
+    height: 100px;
+}
+
+.name{
+    display: inline;
+    font-size: larger;
+    font-weight: bolder;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.description{
+    display: inline;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+@media screen and (max-width: 700px){
+    .contents{
+        flex-direction: column;
+    }
+}
