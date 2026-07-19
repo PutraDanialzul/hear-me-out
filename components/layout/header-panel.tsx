@@ -9,6 +9,7 @@ import SignOutButton from "./sign-out-button";
 import SignInButton from "./sign-in-button";
 import logo from "../../app/images/logo.png";
 import Image from "next/image";
+import ThemeToggle from "./theme-toggle";
 
 export default function HeaderPanel(){
     const router = useRouter();
@@ -74,12 +75,10 @@ export default function HeaderPanel(){
                         {"Not signed in"}
                     </div>}
                     <Link href="/" className={styles.logoContainer}><Image className={styles.logo} alt="Hear Me Out logo" src={logo}/></Link>
-                    {loggedIn ? (<div className={styles.buttonContainer}>
-                        <SignOutButton/>
-                    </div>) : 
                     <div className={styles.buttonContainer}>
-                        <SignInButton/>
-                    </div>}
+                        <ThemeToggle/>
+                        {loggedIn ? <SignOutButton/> : <SignInButton/>}
+                    </div>
                 </div>
                 <div className={styles.lowerArea}>
                     <div className={styles.linkContainer}>

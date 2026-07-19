@@ -7,7 +7,11 @@
 .header{
     width: 100%;
 
-    background: rgba(228,233,239,0.95);
+    background: color-mix(
+        in srgb,
+        var(--surface) 95%,
+        transparent
+    );
 
     backdrop-filter: blur(12px);
 
@@ -65,6 +69,8 @@
 
     justify-content: flex-end;
     align-items: center;
+
+    gap: 0.75rem;
 }
 
 /* ---------- NAVIGATION ---------- */
@@ -121,8 +127,18 @@
     color: var(--primary);
 }
 
+[data-theme="dark"] .linkContainer *:hover{
+    background: rgba(128,149,255,0.15);
+}
+
 .selected{
     background: var(--primary-soft) !important;
+
+    color: var(--primary) !important;
+}
+
+[data-theme="dark"] .selected{
+    background: rgba(128,149,255,0.18) !important;
 
     color: var(--primary) !important;
 }
@@ -211,6 +227,11 @@
 
     box-shadow:
         0 8px 24px rgba(59,68,82,0.08);
+}
+
+[data-theme="dark"] .aboutContainer{
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.25);
 }
 
 .aboutLink{

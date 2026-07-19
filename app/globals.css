@@ -41,6 +41,9 @@ body{
         sans-serif;
 
     min-height: 100vh;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 a{
@@ -122,4 +125,26 @@ textarea{
     outline: 2px solid var(--primary);
 
     outline-offset: 2px;
+}
+
+[data-theme="dark"]{
+    --background: #2b313c;
+
+    --surface: #343c49;
+
+    --surface-light: #3d4655;
+
+    --primary: #8095ff;
+
+    --primary-soft: #4a5883;
+
+    --text: #edf2f8;
+
+    --text-secondary: #b8c0cd;
+
+    --border: #576274;
+
+    --danger: #cf8888;
+
+    --success: #90b998;
 }

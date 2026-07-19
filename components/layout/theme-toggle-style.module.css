@@ -1,0 +1,73 @@
+.toggle{
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.5rem;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    padding: 0.25rem;
+
+    transition: 0.2s ease;
+}
+
+.sun,
+.moon{
+    font-size: 0.9rem;
+
+    opacity: 0.85;
+}
+
+.track{
+    position: relative;
+
+    width: 46px;
+    height: 24px;
+
+    border-radius: 999px;
+
+    background: var(--primary-soft);
+
+    border: 1px solid var(--border);
+}
+
+.thumb{
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    top: 2px;
+    left: 2px;
+
+    background: var(--primary);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.dark{
+    transform: translateX(22px);
+}
+
+.toggle:hover .track{
+    filter: brightness(0.98);
+}
+
+.toggle:active .thumb{
+    transform: scale(0.95);
+}
+
+.dark.toggle:active .thumb{
+    transform:
+        translateX(22px)
+        scale(0.95);
+}
