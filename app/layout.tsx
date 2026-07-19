@@ -30,7 +30,16 @@ export const metadata: Metadata = {
     {
         name: "Tasnim"
     }
-  ]
+  ],
+  
+    openGraph: {
+        title: "Hear Me Out",
+        description:
+          "A safe place for students to share thoughts, reflect privately, and feel heard.",
+        siteName: "Hear Me Out",
+        type: "website"
+    }
+
 };
 
 export default function RootLayout({
