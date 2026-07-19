@@ -37,21 +37,40 @@ export default async function Page({searchParams}:{searchParams:Promise<{error:s
         {page > 1 ? <Link className={styles.prevButton} href={`/?search=${encodeURIComponent(searchQuery)}&sort=${encodeURIComponent(oldestFirst ? 1 : 0)}&page=${page-1}`}/> : null}
         {page}
         {page < pageCount ? <Link className={styles.nextButton} href={`/?search=${encodeURIComponent(searchQuery)}&sort=${encodeURIComponent(oldestFirst ? 1 : 0)}&page=${page+1}`}/> : null}
-    </div>);
-    const resetPage = searchQuery ? (<Link href={`/?sort=${oldestFirst ? 1 : 0}`}>reset</Link>) : null;
+    </div>);    
+    const resetPage = searchQuery ? (
+        <Link href={`/?sort=${parameter.sort}`}>
+            reset
+        </Link>
+    ) : null;
+
     return (
         <div className={styles.pageContent}>
             <RemoveLocalStorage storageKey="confessionDraft"/>
             {banner}
             <div className={styles.top}>
-                <h1 className={styles.title}>Confessions</h1> {reportLink}
+                <h1 className={styles.title}>Hear Me Out</h1>
+
+                <p className={styles.subtitle}>
+                    Sometimes the hardest part is carrying a thought alone.
+                    This is a space where stories, worries, struggles, and
+                    moments can be shared anonymously and heard without judgment.
+                </p>
+
+                {reportLink && (
+                    <div>
+                        {reportLink}
+                    </div>
+                )}
             </div>
             <div className={styles.bottom}>
                 <div className={styles.navigationBar}>
                     <SearchBar className={styles.search} sortOldestFirst={oldestFirst}/>
                     <SortButton className={styles.sort} searchQuery={searchQuery} sortOldestFirst={oldestFirst}/>
                 </div>
-                <p>Current Search: {searchQuery} {resetPage}</p>
+                <p className={styles.searchInfo}>
+                    Current Search: {searchQuery || "All Confessions"} {resetPage}
+                </p>
                 <p className={styles.pageInfo}>Page {page} of {pageCount}</p>
                 <ConfessionList sortOldestFirst={oldestFirst} searchQuery={searchQuery} contentPerPage={contentPerPage} page={page}/>
                 {paginationBar}

@@ -34,7 +34,7 @@ export default function ConfessionForm(){
     return (
         <form className={styles.form} action={addConfession}>
             <DraftTextarea name="text" placeholder="What's on your mind? " storageKey="confessionDraft"/>
-            <input className={styles.sendButton} type="submit" value={"Publish"}/>
+            <input className={styles.sendButton} type="submit" value="Share Anonymously"/>
         </form>
     );
 }

@@ -1,100 +1,294 @@
-.expressionDisplayer, .confessionDisplayer{
-    background-color: white;
-    width: 80vw;
-    height: fit-content;
-    border-radius: 10px;
-    margin: 30px auto;
-    padding: 5vw;
+.expressionDisplayer,
+.confessionDisplayer{
+    width: min(92%, 900px);
+
+    margin: 2rem auto;
 }
 
+/* ---------------- BACK BUTTON ---------------- */
+
 .goBack{
-    color: #486782;
-    text-decoration: none;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    position: absolute;
-    background: none;
     border: none;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
+    padding: 0.8rem 1rem;
+
+    border-radius: 16px;
+
     cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+    margin-bottom: 1.5rem;
+}
+
+.goBack:hover{
+    transform: translateY(-1px);
+
+    background: #cfd8f5;
 }
 
 .goBack::before{
-    content: "⮜ go back";
+    content: "← Back";
 }
+
+/* ---------------- TITLE ---------------- */
 
 .title{
-    display: block;
     text-align: center;
-    width: 100%;
-    margin-bottom: 10px;
-    font-weight: bolder;
-    font-size: 3vw;
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    font-weight: 700;
+
+    color: var(--text);
+
+    letter-spacing: -0.02em;
+
+    margin-bottom: 1.5rem;
 }
 
+/* ---------------- MAIN CARD ---------------- */
+
 .container{
-    border: solid 1px black;
-    border-radius: 10px;
-    padding: 10px 25px;
-    position: relative;
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    padding: 2rem;
+
+    box-shadow:
+        0 4px 14px rgba(59,68,82,0.06);
 }
+
+/* ---------------- DATE & TIME ---------------- */
 
 .timeContainer{
     display: flex;
-    flex-direction: row;
+
+    justify-content: center;
+
+    gap: 1rem;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 2rem;
+
+    padding-bottom: 1rem;
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
 }
 
-.timeContainer > *{
-    width: 50%;
-    text-align: center;
+.date,
+.time{
+    border: none;
 }
+
+/* ---------------- CONTENT ---------------- */
 
 .textContainer{
     white-space: pre-line;
+
+    color: var(--text);
+
+    font-size: 1.05rem;
+
+    line-height: 2.1;
+
+    min-height: 150px;
+
+    margin-bottom: 2rem;
 }
 
-.date{
-    border-right: solid 1px black;
+/* ---------------- BUTTON AREA ---------------- */
+
+.actionBar{
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.75rem;
+
+    margin-top: 1rem;
 }
 
-.time{
-    border-left: solid 1px black;
-}
+/* ---------------- ACTION BUTTONS ---------------- */
 
-.id{
-    position:absolute;
-    bottom: 0px;
-    right: 0px;
-    padding: 0px;
-    margin: 0px;
-    font-size: xx-small;
-    opacity: 0.35;
-}
-
-.deleteButton, .reportButton, .verifyButton, .unverifyButton{
-    background: none;
+.deleteButton,
+.reportButton,
+.verifyButton,
+.unverifyButton{
     border: none;
+
+    background: var(--surface-light);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 0.75rem 1rem;
+
     cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+    font-weight: 700;
+
+    font-family: inherit;
+}
+
+.deleteButton:hover,
+.reportButton:hover,
+.verifyButton:hover,
+.unverifyButton:hover{
+    transform: translateY(-1px);
+}
+
+/* Delete */
+
+.deleteButton{
+    color: #a35d5d;
+}
+
+.deleteButton:hover{
+    background: rgba(163,93,93,0.10);
 }
 
 .deleteButton::before{
-    color: red;
-    content: "🗑️ delete";
-    font-weight: bold;
+    content: "🗑 Delete";
+}
+
+/* Report */
+
+.reportButton{
+    color: #9d7b4c;
+}
+
+.reportButton:hover{
+    background: rgba(157,123,76,0.10);
 }
 
 .reportButton::before{
-    color: red;
-    content: "📢 report";
-    font-weight: bold;
+    content: "⚠ Report";
+}
+
+/* Verify */
+
+.verifyButton{
+    color: #668f70;
+}
+
+.verifyButton:hover{
+    background: rgba(102,143,112,0.10);
 }
 
 .verifyButton::before{
-    color: green;
-    content: "✔️ verify";
-    font-weight: bold;
+    content: "✓ Verify";
+}
+
+/* Unverify */
+
+.unverifyButton{
+    color: #a35d5d;
+}
+
+.unverifyButton:hover{
+    background: rgba(163,93,93,0.10);
 }
 
 .unverifyButton::before{
-    color: red;
-    content: "✖️ unverify";
-    font-weight: bold;
+    content: "✕ Unverify";
+}
+
+/* ---------------- ID ---------------- */
+
+.id{
+    margin-top: 2rem;
+
+    text-align: center;
+
+    font-size: 0.72rem;
+
+    color: var(--text-secondary);
+
+    opacity: 0.6;
+
+    word-break: break-all;
+}
+
+/* ---------------- TABLET ---------------- */
+
+@media screen and (max-width:768px){
+
+    .container{
+        padding: 1.5rem;
+    }
+
+    .textContainer{
+        font-size: 1rem;
+
+        line-height: 2;
+    }
+
+    .timeContainer{
+        gap: 0.5rem;
+    }
+
+    .actionBar{
+        flex-direction: column;
+    }
+
+    .deleteButton,
+    .reportButton,
+    .verifyButton,
+    .unverifyButton{
+        width: 100%;
+    }
+}
+
+/* ---------------- PHONE ---------------- */
+
+@media screen and (max-width:480px){
+
+    .confessionDisplayer,
+    .expressionDisplayer{
+        width: 96%;
+    }
+
+    .container{
+        padding: 1.25rem;
+
+        border-radius: 20px;
+    }
+
+    .title{
+        font-size: 1.85rem;
+    }
+
+    .textContainer{
+        font-size: 0.95rem;
+
+        line-height: 1.95;
+    }
 }

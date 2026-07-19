@@ -1,15 +1,66 @@
 .sortButton{
-    background: none;
-    padding: 0.25vh 2vw 0.25vh 2vw;
-    border-radius: 10px;
-    border: solid 1px black;
+    border: 1px solid var(--border);
+
+    background: var(--surface-light);
+
+    color: var(--text-secondary);
+
+    border-radius: 18px;
+
+    padding: 0.8rem 1.1rem;
+
+    font-weight: 700;
+
+    font-size: 0.95rem;
+
     cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.sortButton:hover{
+    background: var(--primary-soft);
+
+    border-color: rgba(79,104,217,0.25);
+
+    color: var(--primary);
+
+    transform: translateY(-1px);
+}
+
+.sortButton:active{
+    transform: translateY(0);
+}
+
+.oldestFirst{
+    background: rgba(79,104,217,0.08);
+
+    color: var(--primary);
+}
+
+.newestFirst{
+    background: var(--surface-light);
+
+    color: var(--text-secondary);
 }
 
 .oldestFirst::before{
-    content: "Oldest ▲";
+    content: "Oldest First ↑";
 }
 
 .newestFirst::before{
-    content: "Newest ▼";
+    content: "Newest First ↓";
+}
+
+@media screen and (max-width: 768px){
+
+    .sortButton{
+        width: 100%;
+
+        padding: 0.8rem 1rem;
+    }
 }

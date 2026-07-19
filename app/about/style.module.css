@@ -1,56 +1,171 @@
 .mainPanel{
-    margin: 20px;
-    background-color: white;
-    border-radius: 10px;
+    width: min(95%, 1000px);
+
+    margin: 2rem auto;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    padding: 2rem;
+
+    box-shadow:
+        0 4px 14px rgba(59,68,82,0.06);
 }
 
 .title{
+    margin: 0 0 2rem 0;
+
     text-align: center;
-    padding-top: 20px;
+
+    color: var(--text);
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    font-weight: 700;
 }
 
 .contents{
     display: flex;
-    flex-direction: row;
-    width: 80%;
-    margin: 0 auto;
+
+    align-items: center;
+
+    gap: 1rem;
 }
 
-.prevButton, .nextButton{
-    background: none;
+.prevButton,
+.nextButton{
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
     border: none;
+
+    border-radius: 50%;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
     cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.prevButton:hover,
+.nextButton:hover{
+    transform: translateY(-1px);
+
+    background: #cfd8f5;
 }
 
 .prevButton::before{
-    content: "⏴";
+    content: "‹";
+
+    font-size: 1.7rem;
 }
 
 .nextButton::before{
-    content: "⏵";
+    content: "›";
+
+    font-size: 1.7rem;
 }
 
 .content{
-    width: 100%;
-}
+    flex: 1;
 
-.top, .bottom{
-    text-align: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: var(--surface-light);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 2rem;
+
+    min-height: 420px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .top{
-    height: fit-content;
-    font-size: xx-large;
+    color: var(--text);
+
+    text-align: center;
+
+    font-size: 1.1rem;
+
+    line-height: 2;
+
+    margin-bottom: 2rem;
 }
 
 .top > *{
-    display: inline-block;
-    width: 30vw;
+    max-width: 280px;
+
     height: auto;
 }
 
 .bottom{
-    padding: 50px 0;
-    font-size: large;
+    text-align: center;
+
+    color: var(--primary);
+
+    font-size: 1.3rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.02em;
+}
+
+/* Tablets */
+
+@media screen and (max-width: 768px){
+
+    .mainPanel{
+        padding: 1.25rem;
+    }
+
+    .content{
+        padding: 1.5rem;
+
+        min-height: 350px;
+    }
+
+    .top{
+        font-size: 1rem;
+    }
+}
+
+/* Phones */
+
+@media screen and (max-width: 600px){
+
+    .contents{
+        flex-direction: column;
+    }
+
+    .prevButton,
+    .nextButton{
+        width: 44px;
+        height: 44px;
+    }
+
+    .content{
+        width: 100%;
+
+        min-height: 300px;
+
+        padding: 1.25rem;
+    }
+
+    .bottom{
+        font-size: 1.15rem;
+    }
 }

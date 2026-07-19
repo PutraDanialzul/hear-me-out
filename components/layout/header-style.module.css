@@ -1,189 +1,268 @@
 .mainContainer{
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 200;
 }
 
 .header{
-    left: 0px;
-    top: 0px;
     width: 100%;
-    height: 100px;
-    border-bottom: solid 2px #42404E;
+
+    background: rgba(228,233,239,0.95);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--border);
+
+    box-shadow:
+        0 4px 12px rgba(59,68,82,0.06);
 }
 
-.header > * {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-}
+/* ---------- TOP AREA ---------- */
 
 .topArea{
-    height: 70%;
-    background-color: #565e75;
+    min-height: 72px;
+
+    display: flex;
     align-items: center;
-    font-size: larger;
+
+    padding: 0.75rem 1.5rem;
 }
 
-.topArea > * {
-    text-align: center;
-}
-
-.lowerArea{
-    height: 30%;
-    background-color: #ced9e2;
-}
-
-.header > * > *{
-    flex: 1 1 100%;
+.topArea > *{
+    flex: 1;
 }
 
 .logInInformation{
-    font-family: "Lucida Handwriting";
-    overflow: hidden;
-    width: 30%;
-    color: black;
-    font-size: small;
-    text-overflow: ellipsis;
-}
+    color: var(--text-secondary);
 
-.logInInformation > * {
-    margin: 1vh 1vw 1vh 1vw;
+    font-size: 0.9rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .logoContainer{
-    height: 100%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    height: 60px;
+    width: auto;
+
+    transition: 0.2s ease;
+}
+
+.logo:hover{
+    transform: scale(1.02);
+}
+
+.buttonContainer{
+    display: flex;
+
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* ---------- NAVIGATION ---------- */
+
+.lowerArea{
+    min-height: 56px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-top: 1px solid rgba(198,206,216,0.5);
 }
 
 .linkContainer{
     display: flex;
-    flex-direction: row;
-    text-align: center;
-    margin-left: 40vw;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.5rem;
 }
 
 .linkContainer *{
-    background: none;
-    margin: auto;
-    height: 80%;
-    font-size: large;
-    width: 100%;
+    background: transparent;
+
     border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    text-indent: 0;
-    line-height: normal;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    display: inline-block;
-    margin: auto 1vw auto 1vw;
-    color: #42404E;
-    text-align: center;
-    align-content: center;
+
     text-decoration: none;
-    word-spacing: normal;
-    flex: 1 1 0;
-    transition: 0.35s;
+
+    cursor: pointer;
+
+    color: var(--text-secondary);
+
+    padding: 0.7rem 1.15rem;
+
+    border-radius: 999px;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    font-family: inherit;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
-.linkContainer *:hover, .selected{
-    background-color: #8e99a2;
-    transform: scale(1.05);
-    color: black;
+.linkContainer *:hover{
+    background: var(--primary-soft);
+
+    color: var(--primary);
 }
+
+.selected{
+    background: var(--primary-soft) !important;
+
+    color: var(--primary) !important;
+}
+
+/* ---------- HAMBURGER ---------- */
 
 .hamburgerButton{
-    cursor: pointer;
     display: none;
-    flex: 1 2 30vw;
-    min-width: 10vw;
-    text-align: center;
-    align-content: center;
-    transition: 0.35s;
-    border: none;
-    background: none;
-}
 
-.hamburgerButton:hover, .hamburgerButtonOpen, .hamburgerContainer *:hover, .aboutLink:hover{
-    background-color: #8e99a2;
-    color: black;
+    width: 44px;
+    height: 44px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
 .hamburgerButton::before{
     content: "☰";
+
+    font-size: 1.2rem;
+
+    color: var(--text);
 }
+
+.hamburgerButton:hover,
+.hamburgerButtonOpen{
+    background: rgba(79,104,217,0.1);
+}
+
+/* ---------- MOBILE MENU ---------- */
 
 .hamburgerContainer{
-    display: flex;
-    flex-direction: column;
-    top: 10vh;
-    width: 100%;
-    background: #ced9e2;
     display: none;
-    border-bottom: solid 1px #42404E;
-}
 
-.hamburgerContainer *{
-    text-align: center;
-    text-decoration: none;
-    color: #42404E;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: normal;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+    flex-direction: column;
+
+    background: var(--surface);
+
+    border-top: 1px solid var(--border);
 }
 
 .showContents{
     display: flex;
 }
 
+.hamburgerContainer *{
+    text-decoration: none;
+
+    text-align: center;
+
+    color: var(--text);
+
+    padding: 1rem;
+
+    transition: 0.2s ease;
+}
+
+.hamburgerContainer *:hover{
+    background: rgba(79,104,217,0.08);
+}
+
+/* ---------- ABOUT DROPDOWN ---------- */
+
 .aboutContainer{
     position: absolute;
-    border: solid #42404E 2px;
-    background-color: #ced9e2;
-    top: 100px;
-    min-width: 20vw;
-    text-align: center;
-    align-items: center;
-    min-height: fit-content;
-    font-size: larger;
-    display: none;
-    transition: 0.35s;
+
+    top: 100%;
+    right: 1rem;
+
+    min-width: 220px;
+
+    border-radius: 18px;
+
     overflow: hidden;
-    right: 0px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 8px 24px rgba(59,68,82,0.08);
 }
 
 .aboutLink{
-    background: none;
-    height: 50%;
-    font-size: normal;
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    text-indent: 0;
-    line-height: normal;
     display: block;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #42404E;
-    text-align: center;
-    align-content: center;
+
+    padding: 1rem;
+
     text-decoration: none;
-    word-spacing: normal;
-    transition: 0.35s;
+
+    color: var(--text-secondary);
+
+    transition: 0.2s ease;
 }
 
-.logo{
-    height: 90%;
-    width: auto;
-    transition: 0.35s;
+.aboutLink:hover{
+    background: rgba(79,104,217,0.08);
+
+    color: var(--primary);
 }
 
-.logo:hover{
-    transform: scale(1.05);
-}
+/* ---------- TABLET ---------- */
 
-@media screen and (max-width: 700px){
+@media screen and (max-width:900px){
+
     .linkContainer{
         display: none;
     }
+
     .hamburgerButton{
-        display: inline-block;
+        display: block;
+    }
+
+    .lowerArea{
+        justify-content: flex-end;
+
+        padding-right: 1rem;
+    }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media screen and (max-width:700px){
+
+    .topArea{
+        padding: 0.75rem 1rem;
+    }
+
+    .logInInformation{
+        display: none;
+    }
+
+    .logo{
+        height: 50px;
     }
 }

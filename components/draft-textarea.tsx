@@ -14,7 +14,7 @@ export default function DraftTextarea({name, storageKey, placeholder, maxLength=
         setLength(draft.length);
     }, [draft]);
     return (<div className={styles.areaBox}>
-        <textarea placeholder={placeholder} className={styles.textArea} maxLength={maxLength} id="textarea" name={name} value={draft} onChange={(event)=>{
+        <textarea required placeholder={placeholder} className={styles.textArea} maxLength={maxLength} id="textarea" name={name} value={draft} onChange={(event)=>{
             setDraft(event.target.value);
         }}>
         </textarea>

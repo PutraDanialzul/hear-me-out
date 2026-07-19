@@ -1,0 +1,32 @@
+.deleteButton{
+    border: none;
+
+    background: rgba(163,93,93,0.10);
+
+    color: #a35d5d;
+
+    padding: 0.9rem 1.2rem;
+
+    border-radius: 16px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.deleteButton:hover{
+    transform: translateY(-1px);
+
+    background: rgba(163,93,93,0.16);
+}
+
+@media screen and (max-width:768px){
+
+    .deleteButton{
+        width: 100%;
+    }
+}

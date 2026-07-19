@@ -14,7 +14,7 @@ export default function AboutPage(){
 
     const [page, setPage] = useState(0);
 
-    const [topContent, setTopContent] = useState("");
+    const [topContent, setTopContent] = useState<any>("");
     const [bottomContent, setBottomContent] = useState("");
 
     const pageCount = 3;
@@ -22,13 +22,48 @@ export default function AboutPage(){
     const contents:Content[] = [
         {
             name: "Background",
-            description: "Hear Me Out is a student-centered platform created to support the mental well-being of UNITEN students. We understand that university life can be challenging, with academic pressure, personal responsibilities, financial concerns and social challenges affecting students every day."
-        }, {
-            name: "Quote",
-            description: "At Hear Me Out, every voice matters because sometimes, being heard is the first step toward feeling better"
-        }, {
-            name: "Our logo",
-            description: (<Image alt="Hear Me Out logo" src={logo}/>)
+            description:
+                "Hear Me Out is a student-centred platform created to support the mental well-being of UNITEN students. University life can bring academic pressure, personal responsibilities, financial concerns, and social challenges. Sometimes people simply need a safe place to express themselves and be heard."
+        },
+        {
+            name: "Our Mission",
+            description:
+                "At Hear Me Out, every voice matters because sometimes being heard is the first step toward feeling better. The platform encourages respectful expression, reflection, and mutual understanding."
+        },{
+            name: "Our Identity",
+            description: (
+                <div
+                    style={{
+                        display: "inline-flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "1.5rem"
+                    }}
+                >
+                    <Image src={logo} alt="Hear Me Out logo"
+                        style={{
+                            width: "220px",
+                            height: "auto"
+                        }}
+                    />
+                    
+                    <p
+                        style={{
+                            margin: 0,
+                            maxWidth: "600px",
+                            lineHeight: "1.9",
+                            color: "var(--text-secondary)"
+                        }}
+                    >
+                        The Hear Me Out logo represents a safe space
+                        for expression, reflection, and understanding.
+                        Just as every person carries thoughts that are
+                        difficult to share, Hear Me Out exists to help
+                        users express themselves openly while feeling
+                        respected, supported, and heard.
+                    </p>
+                </div>
+            )
         }
     ];
 

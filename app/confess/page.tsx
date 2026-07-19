@@ -15,7 +15,19 @@ export default async function ConfessPage({searchParams}:{searchParams:Promise<{
     return (
         <div className={styles.mainPage}>
             {banner} 
-            <h1 className={styles.title}>Confess</h1>
+            <div className={styles.hero}>
+                <h1 className={styles.title}>
+                    Share What Is On Your Mind
+                </h1>
+                
+                <p className={styles.subtitle}>
+                    This space exists so that thoughts, worries,
+                    experiences, and feelings do not have to be
+                    carried alone. Your confession will be posted
+                    anonymously.
+                </p>
+            </div>
+                
             <ConfessionForm/>
             <OldConfessionMenu/>
         </div>

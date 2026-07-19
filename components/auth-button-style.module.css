@@ -1,20 +1,63 @@
-.signOutButton, .signInButton{
-    width: 5vw;
-    font-size: normal;
+.signOutButton,
+.signInButton{
     border: none;
+
+    background: var(--surface-light);
+
+    color: var(--text);
+
     cursor: pointer;
-    background: none;
-    transition: 0.35s;
+
+    border-radius: 14px;
+
+    padding: 0.75rem 1rem;
+
+    min-width: 110px;
+
+    font-size: 0.92rem;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        color 0.2s ease;
 }
 
-.signInButton:hover, .signOutButton:hover{
-    transform: scale(1.05);
-}
-
-.signOutButton{
-    color: #420000;
-}
+/* Sign In */
 
 .signInButton{
-    color: #42404E;
+    color: var(--primary);
+}
+
+.signInButton:hover{
+    background: var(--primary-soft);
+
+    transform: translateY(-1px);
+}
+
+/* Sign Out */
+
+.signOutButton{
+    color: var(--danger);
+}
+
+.signOutButton:hover{
+    background: rgba(155,92,92,0.10);
+
+    transform: translateY(-1px);
+}
+
+/* Mobile */
+
+@media screen and (max-width:768px){
+
+    .signOutButton,
+    .signInButton{
+        min-width: 95px;
+
+        padding: 0.7rem 0.9rem;
+
+        font-size: 0.88rem;
+    }
 }

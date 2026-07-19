@@ -5,7 +5,6 @@ import DeleteConfessionButton from "../../components/confession/delete-confessio
 import VerifyButton from "../../components/confession/verify-button";
 import ReportButton from "../../components/confession/report-button";
 import UnverifyButton from "../../components/confession/unverify-button";
-import Link from "next/link";
 import { getDate } from "../../lib/functions";
 import GoBackButton from "../../components/go-back-button";
 
@@ -39,16 +38,38 @@ export default async function ConfessionPage({searchParams}:{searchParams:Promis
 
     return (<div className={styles.confessionDisplayer}>
         <GoBackButton/>
-        <div className={styles.title}>{confession.confessor_id == userId ? "Your Confession" : "Hear Me Out"} {!confession.verified ? unverified : null}</div>
+        <div className={styles.title}>{confession.confessor_id == userId ? "Your Confession" : "Someone Wants To Be Heard"} {!confession.verified ? unverified : null}</div>
         <div className={styles.container}>
             <div className={styles.timeContainer}>
                 <span className={styles.date}>{getDate(confession.created_at)}</span>
                 <span className={styles.time}>{new Date(confession.created_at).toLocaleTimeString()}</span>
             </div>
-            <p className={styles.textContainer}>{confession.text}</p>
-            {userId ? (confession.confessor_id == userId ? null : <ReportButton confessionId={confession.id}/>) : null}
-            {userId ? (confession.confessor_id == userId || moderator ? <DeleteConfessionButton confessionId={confession.id}/> : null) : null}
-            {moderator ? (confession.verified ? <UnverifyButton confessionId={confession.id}/> : <VerifyButton confessionId={confession.id}/>) : null}
+            <div className={styles.textContainer}>{confession.text}</div>
+            <div className={styles.actionBar}>
+                {userId
+                    ? (
+                        confession.confessor_id === userId
+                        ? null
+                        : <ReportButton confessionId={confession.id}/>
+                    )
+                    : null}
+            
+                {userId
+                    ? (
+                        confession.confessor_id === userId || moderator
+                        ? <DeleteConfessionButton confessionId={confession.id}/>
+                        : null
+                    )
+                    : null}
+            
+                {moderator
+                    ? (
+                        confession.verified
+                        ? <UnverifyButton confessionId={confession.id}/>
+                        : <VerifyButton confessionId={confession.id}/>
+                    )
+                    : null}
+            </div>
             <p className={styles.id}>{confession.id}</p>
         </div>
     </div>);

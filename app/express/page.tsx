@@ -33,6 +33,17 @@ export default async function ExpressPage({searchParams}:{searchParams:Promise<{
     return (<MindSpacePanel>
         <RemoveLocalStorage storageKey="expressionDraft"/>
         <h1>My Thoughts</h1>
+        <p
+            style={{
+                color: "var(--text-secondary)",
+                marginTop: "-0.75rem",
+                marginBottom: "1.5rem",
+                lineHeight: "1.8"
+            }}
+        >
+            A private space for thoughts, reflections,
+            memories, and ideas that only you can see.
+        </p>
         <div className={styles.displaySetting}>
             <SearchBar className={styles.searchBar} sortOldestFirst={oldestFirst}/>
             <SortButton className={styles.sortButton} searchQuery={searchQuery} sortOldestFirst={oldestFirst}/>

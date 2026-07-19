@@ -6,7 +6,7 @@ export default function ExpressionInfoButton(){
 
     return (<div className={styles.infoButton}>
         <div className={styles.infoBox}>
-            All of the secrets can only be seen by you. 
+            Everything written here remains private and can only be viewed by you. 
         </div>
     </div>);
 }

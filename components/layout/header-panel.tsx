@@ -73,7 +73,7 @@ export default function HeaderPanel(){
                     <div className={styles.logInInformation}>
                         {"Not signed in"}
                     </div>}
-                    <div className={styles.logoContainer}><Image className={styles.logo} alt="Hear Me Out logo" src={logo}/></div>
+                    <Link href="/" className={styles.logoContainer}><Image className={styles.logo} alt="Hear Me Out logo" src={logo}/></Link>
                     {loggedIn ? (<div className={styles.buttonContainer}>
                         <SignOutButton/>
                     </div>) : 

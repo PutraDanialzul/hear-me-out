@@ -1,22 +1,125 @@
-body{
-    background-color: #aeb8c0;
-    margin: 0;
+:root{
+    --background: #d5dbe3;
+
+    --surface: #e4e9ef;
+
+    --surface-light: #edf1f5;
+
+    --primary: #4f68d9;
+
+    --primary-soft: #d9e0f7;
+
+    --text: #3b4452;
+
+    --text-secondary: #6c7686;
+
+    --border: #c6ced8;
+
+    --danger: #9b5c5c;
+
+    --success: #6b9c74;
 }
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+
+    background-color: var(--background);
+
+    color: var(--text);
+
+    font-family:
+        "Nunito",
+        "Segoe UI",
+        sans-serif;
+
+    min-height: 100vh;
+}
+
+a{
+    color: inherit;
+}
+
+button,
+input,
+textarea{
+    font-family: inherit;
+}
+
+/* Error Banner */
 
 .errorBanner{
     width: 100%;
-    background-color: #420000;
-    padding: 0.5vh 0 0.5vh 0;
-    color: #F3F3F3;
+
+    padding: 0.85rem;
+
+    margin-bottom: 1rem;
+
     text-align: center;
+
+    border-radius: 18px;
+
+    background: rgba(155, 92, 92, 0.15);
+
+    border: 1px solid rgba(155, 92, 92, 0.25);
+
+    color: #814949;
 }
 
+/* Legacy */
+
 .addButton{
-    margin-left: 2vw;
+    margin-left: 1rem;
 }
 
 .paginationBar{
-    margin: 2vh 2vw 2vh 2vw;
     display: flex;
-    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+
+    margin: 2rem 0;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb{
+    background: #a5afbc;
+
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #8e99a8;
+}
+
+/* Text Selection */
+
+::selection{
+    background: rgba(79, 104, 217, 0.2);
+}
+
+/* Focus States */
+
+*:focus-visible{
+    outline: 2px solid var(--primary);
+
+    outline-offset: 2px;
 }

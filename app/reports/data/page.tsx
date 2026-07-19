@@ -2,37 +2,139 @@ import { redirect } from "next/navigation";
 import { createClient } from "../../../lib/supabase/server";
 import Link from "next/link";
 import DeleteReportButton from "../../../components/report/delete-report-button";
+import styles from "./style.module.css";
+import GoBackButton from "../../../components/go-back-button";
 
-export default async function ReportDataPage({searchParams}:{searchParams:Promise<{id:string}>}){
+export default async function ReportDataPage({
+    searchParams,
+}:{
+    searchParams: Promise<{id:string}>
+}) {
+
     interface Report{
-        id: string,
-        created_at: string,
-        confession_id: string,
-        reporter_id: string,
-        reason: string
-    };
+        id: string;
+        created_at: string;
+        confession_id: string;
+        reporter_id: string;
+        reason: string;
+    }
+
     const supabase = await createClient();
+
     const user = await supabase.auth.getUser();
+
     if(user.data.user === null){
-        redirect(`/?error: ${encodeURIComponent("Please sign in to gain more access! ")}`);
-        return;
+        redirect(
+            `/?error=${encodeURIComponent(
+                "Please sign in to gain more access!"
+            )}`
+        );
     }
-    const selectMod = await supabase.from("moderator").select("*").single();
+
+    const selectMod = await supabase
+        .from("moderator")
+        .select("*")
+        .single();
+
     if(selectMod.error){
-        redirect(`/?error: ${encodeURIComponent("Access denied. ")}`);
-        return;
+        redirect(
+            `/?error=${encodeURIComponent(
+                "Access denied."
+            )}`
+        );
     }
-    const parameter = await searchParams;
-    const selectReport = await supabase.from("report").select("id, created_at, confession_id, reporter_id, reason").eq("id", parameter.id).single();
-    if(selectReport.error) return (<div>Failed to find the report. Error: {selectReport.error.message}. </div>);
-    const report:Report = selectReport.data;
-    return (<div>
-        <h1>Report data: </h1>
-        <p>ID: {report.id}</p>
-        <p>Created at: {report.created_at}</p>
-        <p>Reporter ID: {report.reporter_id}</p>
-        <p>Confession ID: <Link href={"/confession?id="+report.confession_id}>{report.confession_id}</Link></p>
-        <p style={{whiteSpace: "pre-line"}}>Reason: {report.reason}</p>
-        <DeleteReportButton reportId={report.id}/>
-    </div>);
+
+    const params = await searchParams;
+
+    const selectReport = await supabase
+        .from("report")
+        .select(
+            "id, created_at, confession_id, reporter_id, reason"
+        )
+        .eq("id", params.id)
+        .single();
+
+    if(selectReport.error){
+        return (
+            <div className={styles.errorCard}>
+                Failed to find report.
+            </div>
+        );
+    }
+
+    const report = selectReport.data as Report;
+
+    return (
+        <div className={styles.page}>
+            <GoBackButton/>
+            <div className={styles.hero}>
+                <h1 className={styles.title}>
+                    Report Review
+                </h1>
+
+                <p className={styles.subtitle}>
+                    Review submitted information and
+                    determine whether moderation action
+                    is required.
+                </p>
+            </div>
+
+            <div className={styles.card}>
+
+                <div className={styles.section}>
+                    <h2>Report Information</h2>
+
+                    <p>
+                        <strong>Report ID</strong>
+                    </p>
+
+                    <div className={styles.codeBox}>
+                        {report.id}
+                    </div>
+
+                    <p>
+                        <strong>Created</strong>
+                    </p>
+
+                    <div className={styles.infoBox}>
+                        {new Date(
+                            report.created_at
+                        ).toLocaleString()}
+                    </div>
+                </div>
+
+                <div className={styles.section}>
+                    <h2>Related Confession</h2>
+
+                    <div className={styles.codeBox}>
+                        <Link href={`/confession?id=${report.confession_id}`}>{report.confession_id}</Link>
+                    </div>
+                </div>
+
+                <div className={styles.section}>
+                    <h2>Reporter</h2>
+
+                    <div className={styles.codeBox}>
+                        {report.reporter_id}
+                    </div>
+                </div>
+
+                <div className={styles.section}>
+                    <h2>Reason</h2>
+
+                    <div className={styles.reasonBox}>
+                        {report.reason ||
+                            "No reason provided."}
+                    </div>
+                </div>
+
+                <div className={styles.actionBar}>
+                    <DeleteReportButton
+                        reportId={report.id}
+                    />
+                </div>
+
+            </div>
+        </div>
+    );
 }

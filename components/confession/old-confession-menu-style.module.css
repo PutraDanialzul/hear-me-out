@@ -1,81 +1,187 @@
 .oldConfessionMenu{
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    padding: 1.75rem;
+
+    box-shadow:
+        0 4px 14px rgba(59,68,82,0.06);
 }
 
 .oldConfessionMenu h1{
+    margin: 0 0 1.5rem 0;
+
     text-align: center;
-}
 
-.previousButton, .nextButton{
-    position: absolute;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: x-large;
-    width: fit-content;
-    height: fit-content;
-    top: 50%;
-    transform: translateY(-50%);
-}
+    color: var(--text);
 
-.previousButton{
-    left: 0;
-}
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
 
-.previousButton::before{
-    content: "⮜";
-}
-
-.nextButton{
-    right: 0;
-}
-
-.nextButton::before{
-    content: "⮞";
+    font-weight: 700;
 }
 
 .cardContainer{
     position: relative;
-    width: 95%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    padding: 0 2.5%;
-    justify-content: center;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 1rem;
 }
 
 .card{
-    height: 20vh;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: #ced9e2;
-    width: 20%;
-    margin: 0 1vw;
     text-decoration: none;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color: black;
-    transition: 0.35s;
+
+    background: var(--surface-light);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 1rem;
+
+    color: var(--text);
+
+    min-height: 180px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.card:hover{
+    transform: translateY(-2px);
+
+    border-color: rgba(79,104,217,0.18);
+
+    box-shadow:
+        0 6px 18px rgba(59,68,82,0.08);
 }
 
 .cardDate{
-    margin: 0;
-    border-bottom: solid 1px black;
-    text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: bold;
+    margin: 0 0 0.75rem 0;
+
+    padding-bottom: 0.75rem;
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--text-secondary);
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    line-height: 1.5;
 }
 
 .cardContent{
     margin: 0;
-    border-top: solid 1px black;
-    text-align: center;
-    margin: 0 auto;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    color: var(--text);
+
+    line-height: 1.8;
+
+    overflow: hidden;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 5;
+
+    -webkit-box-orient: vertical;
 }
 
-.card:hover{
-    transform: scale(1.05) translateY(-2.5%);
+/* Navigation */
+
+.previousButton,
+.nextButton{
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.previousButton:hover,
+.nextButton:hover{
+    background: #cfd8f5;
+
+    transform: translateY(-50%) scale(1.03);
+}
+
+.previousButton{
+    left: -12px;
+}
+
+.nextButton{
+    right: -12px;
+}
+
+.previousButton::before{
+    content: "‹";
+
+    font-size: 1.5rem;
+}
+
+.nextButton::before{
+    content: "›";
+
+    font-size: 1.5rem;
+}
+
+/* Tablet */
+
+@media screen and (max-width: 768px){
+
+    .oldConfessionMenu{
+        padding: 1rem;
+    }
+
+    .cardContainer{
+        grid-template-columns: 1fr;
+    }
+
+    .previousButton,
+    .nextButton{
+        display: none;
+    }
+}
+
+/* Small Phones */
+
+@media screen and (max-width: 480px){
+
+    .oldConfessionMenu{
+        border-radius: 20px;
+    }
+
+    .card{
+        min-height: 150px;
+    }
+
+    .cardContent{
+        font-size: 0.95rem;
+    }
 }

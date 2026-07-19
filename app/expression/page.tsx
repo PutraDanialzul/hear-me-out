@@ -25,14 +25,27 @@ export default async function ExpressionPage({searchParams}:{searchParams:Promis
 
     return (<div className={styles.expressionDisplayer}>
         <GoBackButton/>
-        <div className={styles.title}>That day I felt...</div>
+        <div className={styles.title}>A Moment Worth Remembering</div>
+        <p
+            style={{
+                textAlign: "center",
+                color: "var(--text-secondary)",
+                marginTop: "-0.75rem",
+                marginBottom: "2rem",
+                lineHeight: "1.8"
+            }}
+        >
+            This entry only belongs to you.
+        </p>
         <div className={styles.container}>
             <div className={styles.timeContainer}>
                 <span className={styles.date}>{getDate(expression.created_at)}</span>
                 <span className={styles.time}>{new Date(expression.created_at).toLocaleTimeString()}</span>
             </div>
-            <p className={styles.textContainer}>{expression.text}</p>
-            <DeleteExpressionButton expressionId={expression.id}/>
+            <div className={styles.textContainer}>{expression.text}</div>
+            <div className={styles.actionBar}>
+                <DeleteExpressionButton expressionId={expression.id}/>
+            </div>
             <p className={styles.id}>{expression.id}</p>
         </div>
     </div>);

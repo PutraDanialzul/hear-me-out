@@ -1,0 +1,159 @@
+.page{
+    width: min(95%, 900px);
+
+    margin: 2rem auto;
+}
+
+.hero{
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    padding: 2rem;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 14px rgba(59,68,82,0.06);
+}
+
+.title{
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: clamp(2rem,4vw,3rem);
+
+    font-weight: 700;
+}
+
+.subtitle{
+    margin-top: 1rem;
+
+    color: var(--text-secondary);
+
+    line-height: 1.8;
+}
+
+.card{
+    margin-top: 1.5rem;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    padding: 1.75rem;
+}
+
+.section{
+    margin-bottom: 2rem;
+}
+
+.section h2{
+    color: var(--text);
+
+    margin-bottom: 1rem;
+}
+
+.codeBox{
+    background: var(--surface-light);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 1rem;
+
+    color: var(--text-secondary);
+
+    word-break: break-all;
+}
+
+.infoBox{
+    background: var(--surface-light);
+
+    border-radius: 16px;
+
+    padding: 1rem;
+
+    color: var(--text);
+}
+
+.reasonBox{
+    background: var(--surface-light);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 1rem;
+
+    white-space: pre-line;
+
+    line-height: 1.9;
+
+    color: var(--text);
+}
+
+.confessionLink{
+    display: inline-block;
+
+    text-decoration: none;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
+    padding: 0.85rem 1.1rem;
+
+    border-radius: 16px;
+
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.confessionLink:hover{
+    background: #cfd8f5;
+}
+
+.actionBar{
+    border-top: 1px solid var(--border);
+
+    padding-top: 1.5rem;
+
+    display: flex;
+}
+
+.errorCard{
+    width: min(95%, 700px);
+
+    margin: 2rem auto;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 2rem;
+
+    text-align: center;
+
+    color: var(--danger);
+}
+
+@media screen and (max-width:768px){
+
+    .card{
+        padding: 1.25rem;
+    }
+
+    .actionBar{
+        flex-direction: column;
+    }
+}

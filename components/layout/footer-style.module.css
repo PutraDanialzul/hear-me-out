@@ -1,4 +1,64 @@
 .footer{
-    min-height: 7vh;
-    background-color: #565e75;
+    margin-top: 4rem;
+
+    min-height: 90px;
+
+    background: var(--surface);
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.footer::before{
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(90%, 1000px);
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(108,118,134,0.3),
+            transparent
+        );
+}
+
+.footer::after{
+    content: "Take care of yourself.";
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+
+    letter-spacing: 0.03em;
+}
+
+@media screen and (max-width: 768px){
+
+    .footer{
+        min-height: 80px;
+
+        padding: 1rem;
+    }
+
+    .footer::after{
+        font-size: 0.85rem;
+
+        text-align: center;
+    }
 }

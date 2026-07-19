@@ -1,35 +1,53 @@
 .panel{
-    background-color: white;
-    margin: 20px auto 20px auto;
-    width: 80vw;
-    height: fit-content;
+    width: min(95%, 1200px);
+
+    margin: 2rem auto;
+
     display: flex;
-    flex-direction: row;
-    border-radius: 10px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 14px rgba(59,68,82,0.06);
 }
 
+/* ---------------- LEFT PANEL ---------------- */
+
 .leftSide{
-    width: 30%;
-    padding: 1vw 2vh 1vw 2vh;
+    width: 300px;
+
+    flex-shrink: 0;
+
+    padding: 1.5rem;
+
+    background: var(--surface-light);
+
+    border-right: 1px solid var(--border);
+
     display: flex;
     flex-direction: column;
 }
 
 .iconContainer{
-    max-height: 20%;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
 
-.iconContainer > * {
-    font-size: larger;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    align-items: center;
+
+    gap: 1rem;
+
+    margin-bottom: 2rem;
 }
 
 .mindSpaceEmoji{
-    font-size: 5vw;
-    margin: auto 0 auto auto;
+    margin: 0;
+
+    font-size: 3rem;
 }
 
 .mindSpaceEmoji::after{
@@ -37,87 +55,140 @@
 }
 
 .mindSpaceInfo{
-    width: 60%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    align-content: center;
-    margin-right: auto;
-    max-width: fit-content;
+
+    justify-content: center;
+}
+
+.mindSpaceInfo p:first-child{
+    color: var(--text);
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+}
+
+.mindSpaceInfo p:last-child{
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
 }
 
 .linkGroup{
-    height: auto;
     display: flex;
+
     flex-direction: column;
-    align-items: center;
+
+    gap: 0.75rem;
 }
 
 .linkContainer{
-    width: 90%;
-    margin: 2vh 0 2vh 0;
-    padding: 2vh 1vw 2vh 1vw;
-    text-align: center;
-    align-items: center;
-    border-radius: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
-    flex-direction: row;
-    text-decoration: none;
-    color: black;
-    font-size: larger;
-    transition: 0.35s;
-}
 
-.selected{
-    background-color: #8e99a2;
+    align-items: center;
+
+    gap: 0.75rem;
+
+    text-decoration: none;
+
+    color: var(--text);
+
+    padding: 1rem;
+
+    border-radius: 16px;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
 }
 
 .linkContainer:hover{
-    background-color: #8e99a2;
-    transform: scale(1.05);
+    background: var(--primary-soft);
 }
 
-.linkInfo{
-    margin: auto auto auto 0;
+.selected{
+    background: var(--primary-soft);
 }
 
 .linkEmoji{
-    margin: auto 0 auto auto;
-    width: 20%;
-    height: auto;
-    font-size: 3vw;
+    margin: 0;
+
+    font-size: 1.3rem;
 }
+
+.linkInfo{
+    margin: 0;
+
+    font-weight: 600;
+}
+
+/* ---------------- RIGHT PANEL ---------------- */
 
 .rightSide{
-    width: 70%;
-    border-left: solid 2px black;
-    padding: 1vw 2vh 1vw 2vh;
+    flex: 1;
+
+    padding: 2rem;
+
+    min-width: 0;
 }
 
-@media screen and (max-width: 700px){
+.rightSide h1{
+    margin-top: 0;
+
+    color: var(--text);
+
+    font-size: clamp(2rem, 4vw, 2.7rem);
+
+    font-weight: 700;
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media screen and (max-width:900px){
+
     .panel{
         flex-direction: column;
     }
+
     .leftSide{
-        width: 90%;
-        padding: 3vh auto;
-        border-bottom: solid 2px black;
+        width: auto;
+
+        border-right: none;
+
+        border-bottom: 1px solid var(--border);
     }
+
     .linkGroup{
         flex-direction: row;
+
+        flex-wrap: wrap;
     }
+
     .linkContainer{
-        margin: 3vh 1vw 1vh 1vw;
-        font-size: smaller;
+        flex: 1;
     }
-    .iconContainer{
-        margin: 2vh 1vw;
+}
+
+@media screen and (max-width:480px){
+
+    .leftSide{
+        padding: 1rem;
     }
+
     .rightSide{
-        border-left: none;
-        padding: 0;
-        margin: 0 auto;
-        width: fit-content;
+        padding: 1rem;
+    }
+
+    .iconContainer{
+        justify-content: center;
+    }
+
+    .linkGroup{
+        flex-direction: column;
+    }
+
+    .linkContainer{
+        width: 100%;
     }
 }
