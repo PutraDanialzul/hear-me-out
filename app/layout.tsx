@@ -4,8 +4,33 @@ import "./globals.css"
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Hear Me Out',
-  description: 'A place where people will hear you. '
+  title: "Hear Me Out",
+  description:
+    "Hear Me Out is a student-centered platform designed to support emotional well-being through anonymous confessions, private reflection, and safe self-expression.",
+  keywords: [
+    "mental health",
+    "student wellbeing",
+    "anonymous confessions",
+    "self expression",
+    "journaling",
+    "mind space",
+    "UNITEN",
+    "hear me out"
+  ],
+  authors: [
+    {
+        name: "Putra"
+    },
+    {
+        name: "Mila"
+    },
+    {
+        name: "Fahmi"
+    },
+    {
+        name: "Tasnim"
+    }
+  ]
 };
 
 export default function RootLayout({
