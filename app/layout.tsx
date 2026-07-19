@@ -4,6 +4,11 @@ import "./globals.css"
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+    
+    metadataBase: new URL(
+        "https://hear-me-out.depression-anxiety-assessment.com"
+    ),
+
   title: "Hear Me Out",
   description:
     "Hear Me Out is a student-centered platform designed to support emotional well-being through anonymous confessions, private reflection, and safe self-expression.",
@@ -37,7 +42,16 @@ export const metadata: Metadata = {
         description:
           "A safe place for students to share thoughts, reflect privately, and feel heard.",
         siteName: "Hear Me Out",
-        type: "website"
+        type: "website",
+        url: "/",
+        images: [
+            {
+                url: "/images/logo.png",
+                width: 1200,
+                height: 630,
+                alt: "Hear Me Out"
+            }
+        ]
     }
 
 };
