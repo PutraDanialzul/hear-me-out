@@ -47,8 +47,8 @@ export const metadata: Metadata = {
         images: [
             {
                 url: "/og-image.png",
-                width: 1200,
-                height: 630,
+                width: 640,
+                height: 640,
                 alt: "Hear Me Out"
             }
         ]
