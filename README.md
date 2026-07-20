@@ -1,4 +1,4 @@
-#Hear Me Out 🌱
+# [Hear Me Out 🌱](https://hear-me-out.depression-anxiety-assessment.com/)
 
 Hear Me Out is a student-centered platform designed to support emotional well-being through anonymous confessions, private reflection, and safe self-expression.
 
