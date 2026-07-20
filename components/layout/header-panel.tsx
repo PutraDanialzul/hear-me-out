@@ -33,7 +33,7 @@ export default function HeaderPanel(){
             const user = await supabase.auth.getUser();
             setLoggedIn(user.data.user != null);
             if(user.data.user){
-                setUserEmail(user.data.user.email);
+                setUserEmail(user.data.user.email??"");
             }
             router.refresh();
         }
@@ -74,7 +74,7 @@ export default function HeaderPanel(){
                     <div className={styles.logInInformation}>
                         {"Not signed in"}
                     </div>}
-                    <Link href="/" className={styles.logoContainer}><Image className={styles.logo} alt="Hear Me Out logo" src={logo}/></Link>
+                    <Link href="/" className={styles.logoContainer}><Image loading="eager" className={styles.logo} alt="Hear Me Out logo" src={logo}/></Link>
                     <div className={styles.buttonContainer}>
                         <ThemeToggle/>
                         {loggedIn ? <SignOutButton/> : <SignInButton/>}

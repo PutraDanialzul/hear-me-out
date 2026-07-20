@@ -7,6 +7,7 @@ import ReportButton from "../../components/confession/report-button";
 import UnverifyButton from "../../components/confession/unverify-button";
 import { getDate } from "../../lib/functions";
 import GoBackButton from "../../components/go-back-button";
+import DateTimeComponent from "../../components/datetime-component";
 
 export default async function ConfessionPage({searchParams}:{searchParams:Promise<{id:string}>}){
 
@@ -41,8 +42,8 @@ export default async function ConfessionPage({searchParams}:{searchParams:Promis
         <div className={styles.title}>{confession.confessor_id == userId ? "Your Confession" : "Someone Wants To Be Heard"} {!confession.verified ? unverified : null}</div>
         <div className={styles.container}>
             <div className={styles.timeContainer}>
-                <span className={styles.date}>{getDate(confession.created_at)}</span>
-                <span className={styles.time}>{new Date(confession.created_at).toLocaleTimeString()}</span>
+                <span className={styles.date}><DateTimeComponent datetime={confession.created_at} showDate/></span>
+                <span className={styles.time}><DateTimeComponent datetime={confession.created_at} showTime/></span>
             </div>
             <div className={styles.textContainer}>{confession.text}</div>
             <div className={styles.actionBar}>

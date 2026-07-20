@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createClient } from "../../lib/supabase/server";
 import styles from "../list-style.module.css"
 import { getDate } from "../../lib/functions";
+import DateTimeComponent from "../datetime-component";
 
 interface Confession{
     created_at: string,
@@ -34,7 +35,7 @@ export default async function ConfessionList({sortOldestFirst, searchQuery, page
             {confessions.map((confession)=>(
                 <Link href={"/confession?id="+confession.id} key={confession.id} className={styles.contentBox}>
                     <div className={styles.topArea}>
-                        {getDate(confession.created_at)+" | "+new Date(confession.created_at).toLocaleTimeString()} {confession.verified ? "" : unverifiedMessage} {userId == confession.confessor_id ? yours : null}
+                        <DateTimeComponent datetime={confession.created_at} showDate/> | <DateTimeComponent datetime={confession.created_at} showTime/> {confession.verified ? "" : unverifiedMessage} {userId == confession.confessor_id ? yours : null}
                     </div>
                     <div className={styles.lowerArea}>
                         <span className={styles.text}>{confession.text}</span>

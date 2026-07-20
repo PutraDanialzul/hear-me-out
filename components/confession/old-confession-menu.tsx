@@ -5,6 +5,7 @@ import styles from "./old-confession-menu-style.module.css"
 import { createClient } from "../../lib/supabase/client";
 import { getDate } from "../../lib/functions";
 import Link from "next/link";
+import DateTimeComponent from "../datetime-component";
 
 export default function OldConfessionMenu(){
 
@@ -76,7 +77,7 @@ export default function OldConfessionMenu(){
         <div className={styles.cardContainer}>
             {confessions.map((confession)=>(<Link href={`/confession?id=${confession.id}`} key={confession.id} className={styles.card}>
                 <p className={styles.cardDate}>
-                    {getDate(confession.created_at)} {confession.verified ? null : unverified}
+                    <DateTimeComponent datetime={confession.created_at} showDate showTime/> {confession.verified ? null : unverified}
                 </p>
                 <p className={styles.cardContent}>
                     {confession.text}

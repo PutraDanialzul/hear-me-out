@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "../../lib/supabase/server";
 import styles from "./report-list-style.module.css";
+import DateTimeComponent from "../datetime-component";
 
 interface Report{
     created_at: string;
@@ -39,9 +40,7 @@ export default async function ReportList(){
                     </div>
 
                     <div className={styles.date}>
-                        {new Date(
-                            report.created_at
-                        ).toLocaleString()}
+                        <DateTimeComponent datetime={report.created_at} showDate showTime/>
                     </div>
 
                     <div className={styles.reason}>

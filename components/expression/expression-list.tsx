@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createClient } from "../../lib/supabase/server";
 import styles from "../list-style.module.css"
 import { getDate } from "../../lib/functions";
+import DateTimeComponent from "../datetime-component";
 
 interface Expression{
     created_at: string,
@@ -23,7 +24,7 @@ export default async function ExpressionList({sortOldestFirst, searchQuery, cont
             {expressions.map((expression)=>(
                 <Link href={"/expression?id="+expression.id} key={expression.id} className={styles.contentBox}>
                     <div className={styles.topArea}>
-                        {getDate(expression.created_at)+" | "+new Date(expression.created_at).toLocaleTimeString()}
+                        <DateTimeComponent datetime={expression.created_at} showDate/> | <DateTimeComponent datetime={expression.created_at} showTime/>
                     </div>
                     <div className={styles.lowerArea}>
                         <span className={styles.text}>{expression.text}</span>

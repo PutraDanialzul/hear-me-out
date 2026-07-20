@@ -4,6 +4,7 @@ import Link from "next/link";
 import DeleteReportButton from "../../../components/report/delete-report-button";
 import styles from "./style.module.css";
 import GoBackButton from "../../../components/go-back-button";
+import DateTimeComponent from "../../../components/datetime-component";
 
 export default async function ReportDataPage({
     searchParams,
@@ -97,9 +98,7 @@ export default async function ReportDataPage({
                     </p>
 
                     <div className={styles.infoBox}>
-                        {new Date(
-                            report.created_at
-                        ).toLocaleString()}
+                        <DateTimeComponent datetime={report.created_at} showDate showTime/>
                     </div>
                 </div>
 

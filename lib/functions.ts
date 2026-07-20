@@ -1,4 +1,4 @@
-export function getDate(dateString){
+export function getDate(dateString:string){
     const date = new Date(dateString);
     const day = date.getDate();
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

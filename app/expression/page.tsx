@@ -5,6 +5,7 @@ import DeleteExpressionButton from "../../components/expression/delete-expressio
 import Link from "next/link";
 import { getDate } from "../../lib/functions";
 import GoBackButton from "../../components/go-back-button";
+import DateTimeComponent from "../../components/datetime-component";
 
 export default async function ExpressionPage({searchParams}:{searchParams:Promise<{id:string}>}){
 
@@ -39,8 +40,8 @@ export default async function ExpressionPage({searchParams}:{searchParams:Promis
         </p>
         <div className={styles.container}>
             <div className={styles.timeContainer}>
-                <span className={styles.date}>{getDate(expression.created_at)}</span>
-                <span className={styles.time}>{new Date(expression.created_at).toLocaleTimeString()}</span>
+                <span className={styles.date}><DateTimeComponent datetime={expression.created_at} showDate/></span>
+                <span className={styles.time}><DateTimeComponent datetime={expression.created_at} showTime/></span>
             </div>
             <div className={styles.textContainer}>{expression.text}</div>
             <div className={styles.actionBar}>
