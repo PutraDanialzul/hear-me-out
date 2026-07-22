@@ -4,28 +4,28 @@ export default function AboutUsPage(){
 
     const members = [
         {
-            name: "Team Member",
-            role: "Role",
+            name: "Putra",
+            role: "Programmer",
             description:
-                "Short description about responsibilities and contributions."
+                "\"Have an idea? Tell me, and I'll build it.\""
         },
         {
-            name: "Team Member",
-            role: "Role",
+            name: "Tasnim",
+            role: "Designer",
             description:
-                "Short description about responsibilities and contributions."
+                "\"Better live your life. We're running out of time. \""
         },
         {
-            name: "Team Member",
-            role: "Role",
+            name: "Mila",
+            role: "Writer",
             description:
-                "Short description about responsibilities and contributions."
+                "\"Trust the process and you will be fine. \""
         },
         {
-            name: "Team Member",
-            role: "Role",
+            name: "Fahmi",
+            role: "Co-writer",
             description:
-                "Short description about responsibilities and contributions."
+                "\"Make each day your masterpiece.\""
         }
     ];
 
